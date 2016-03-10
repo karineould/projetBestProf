@@ -5,9 +5,12 @@ var User = require('../models/users.js');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-  User.create('test','test',1);
+    console.log(req);
+  //User.create('test','test',1);
+  //var id = User.authenticate('test','test',1);
 
-  res.send('respond with a resource');
+  //res.redirect('/:id');
+    res.send('users Page');
 });
 
 module.exports = router;

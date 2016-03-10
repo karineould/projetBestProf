@@ -13,9 +13,9 @@ var db = new Sequelize('BestProf', 'root', 'root', {
 
 
 // load models
-var models = [
-    'users'
-];
+//var models = [
+//    'users'
+//];
 
 //models.forEach(function(model) {
 //    module.exports[model] = db.import(__dirname + '/' + model);

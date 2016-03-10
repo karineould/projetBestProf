@@ -7,58 +7,52 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    {% block head %}
+    {% endblock %}
 </head>
+
+
 <body class="landing">
+
 <div id="page-wrapper">
 
     <!-- Header -->
+    {% block menu %}
     <header id="header" class="alt">
-        <h1><a href="#">MyBestProf</a> by TEAM 2</h1>
+        <h1 style=" font-size: 15px;"><a href="/">MyBestProf</a> by TEAM 2</h1>
         <nav id="nav">
             <ul>
-                <li><a href="#">Accueil</a></li>
-                {#<li>#}
-                    {#<a href="#" class="icon fa-angle-down">Layouts</a>#}
-                    {#<ul>#}
-                        {#<li><a href="generic.twig">Generic</a></li>#}
-                        {#<li><a href="contact.twig">Contact</a></li>#}
-                        {#<li><a href="elements.twig">Elements</a></li>#}
-                        {#<li>#}
-                            {#<a href="#">Submenu</a>#}
-                            {#<ul>#}
-                                {#<li><a href="#">Option One</a></li>#}
-                                {#<li><a href="#">Option Two</a></li>#}
-                                {#<li><a href="#">Option Three</a></li>#}
-                                {#<li><a href="#">Option Four</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</li>#}
-                <li><a href="#" class="button">Sign Up</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/inscription" class="button">Inscription</a></li>
             </ul>
         </nav>
     </header>
+    {% endblock %}
 
+    {% block banner %}
     <!-- Banner -->
     <section id="banner">
         <h2>MyBestProf</h2>
         <p>L'agence de recrutement spécialisée dans l'enseignement.</p>
         <ul class="actions">
-            <li><a href="#" class="button special">Sign Up</a></li>
-            <li><a href="#" class="button">Sign In</a></li>
+            <li><a href="/inscription" class="button special">Inscription</a></li>
+            <li><a href="/connexion" class="button">Connexion</a></li>
         </ul>
     </section>
+    {% endblock %}
+
 
     <!-- Main -->
     <section id="main" class="container">
-
+        {% block content %}
         <section class="box special">
             <header class="major">
                 <h2>En toute tranquillité,
                     <br />
                     MyBestProf vous donne l'accès à un enseignement de qualité</h2>
-                {#<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />#}
-                    {#adipiscing nunc adipiscing. Condimentum turpis massa.</p>#}
+                <p>Des tests sur mesure,<br />
+                   une selection adaptée à vos besoin.
+                    Afin de bénéficiez des profs les plus compétents dans leur domaine.</p>
             </header>
             <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
         </section>
@@ -67,79 +61,65 @@
             <div class="features-row">
                 <section>
                     <span class="icon major fa-bolt accent2"></span>
-                    <h3>Test</h3>
-                    <p>Découvrez les tests les plus adaptés pour un enseignement de qualité. </p>
+                    <h3>Nos tests prof</h3>
+                    <p>Découvrez les tests les plus adaptés pour un enseignement de qualité.</p>
+                    <p></p>
                 </section>
                 <section>
                     <span class="icon major fa-area-chart accent3"></span>
-                    <h3>Recrutement</h3>
-                    <p>MyBestProf vous accompagne dans votre recherche de poste</p>
+                    <h3>Notre expertise</h3>
+                    <p>Des compétences reconnus par des experts de l'enseignement.</p>
                 </section>
             </div>
             <div class="features-row">
                 <section>
                     <span class="icon major fa-cloud accent4"></span>
-                    <h3>Personnalisation</h3>
-                    <p>Avec nos tests sur mesure, bénéficiez des profs les plus compétents/expérimentés/qualifiés dans leur domaine. </p>
+                    <h3>Notre engagement</h3>
+                    <p>MyBestProf vous accompagne dans votre recherche de poste</p>
                 </section>
                 <section>
                     <span class="icon major fa-lock accent5"></span>
-                    <h3>Contact</h3>
-                    <p>Des compétences reconnus par des experts de l'enseignement.</p>
+                    <h3>A propos</h3>
+                    <p>L'agence numéro 1, spécialisée dans le recrutement d'enseignants.</p>
                 </section>
             </div>
         </section>
+        {% endblock %}
 
-        {#<div class="row">#}
-            {#<div class="6u 12u(narrower)">#}
+        {% block sousContent %}
+        <div class="row">
+            <div class="6u 12u(narrower)">
 
-                {#<section class="box special">#}
-                    {#<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>#}
-                    {#<h3>Sed lorem adipiscing</h3>#}
-                    {#<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>#}
-                    {#<ul class="actions">#}
-                        {#<li><a href="#" class="button alt">Learn More</a></li>#}
-                    {#</ul>#}
-                {#</section>#}
+                <section class="box special">
+                    <span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+                    <h3>Sed lorem adipiscing</h3>
+                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Learn More</a></li>
+                    </ul>
+                </section>
 
-            {#</div>#}
-            {#<div class="6u 12u(narrower)">#}
+            </div>
+            <div class="6u 12u(narrower)">
 
-                {#<section class="box special">#}
-                    {#<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>#}
-                    {#<h3>Accumsan integer</h3>#}
-                    {#<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>#}
-                    {#<ul class="actions">#}
-                        {#<li><a href="#" class="button alt">Learn More</a></li>#}
-                    {#</ul>#}
-                {#</section>#}
+                <section class="box special">
+                    <span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+                    <h3>Accumsan integer</h3>
+                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Learn More</a></li>
+                    </ul>
+                </section>
 
-            {#</div>#}
-        {#</div>#}
-
-    </section>
-
-    <!-- CTA -->
-    {#<section id="cta">#}
-
-        {#<h2>Sign up for beta access</h2>#}
-        {#<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>#}
-
-        {#<form>#}
-            {#<div class="row uniform 50%">#}
-                {#<div class="8u 12u(mobilep)">#}
-                    {#<input type="email" name="email" id="email" placeholder="Email Address" />#}
-                {#</div>#}
-                {#<div class="4u 12u(mobilep)">#}
-                    {#<input type="submit" value="Sign Up" class="fit" />#}
-                {#</div>#}
-            {#</div>#}
-        {#</form>#}
+            </div>
+        </div>
+        {% endblock %}
 
     </section>
 
     <!-- Footer -->
     <footer id="footer">
+        {% block footer %}
         <ul class="icons">
             <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -151,9 +131,11 @@
         <ul class="copyright">
             <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
+        {% endblock %}
     </footer>
 
 </div>
+
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
@@ -163,70 +145,8 @@
 <script src="assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
-
+{% block script %}
+{% endblock %}
 </body>
+
 </html>
-
-
-{#<!DOCTYPE html>#}
-{#<html>#}
-{#<head>#}
-    {#{% block head %}#}
-        {#<!-- Latest compiled and minified CSS -->#}
-        {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">#}
-        {#<!-- Optional theme -->#}
-        {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">#}
-        {#<!-- Latest compiled and minified JavaScript -->#}
-        {#<script src="http://www.iclubz.com/js/jquery.js"></script>#}
-
-        {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>#}
-
-        {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>#}
-
-        {#<title>Best Prof</title>#}
-    {#{% endblock %}#}
-{#</head>#}
-{#<body>#}
-{#<nav class="navbar navbar-default">#}
-    {#<div class="container-fluid">#}
-        {#<!-- Brand and toggle get grouped for better mobile display -->#}
-        {#<div class="navbar-header">#}
-            {#<a class="navbar-brand" href="#">#}
-                {#<span class="glyphicon glyphicon-home" aria-hidden="true"></span>#}
-            {#</a>#}
-        {#</div>#}
-        {#<!-- Collect the nav links, forms, and other content for toggling -->#}
-        {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-            {#<ul class="nav navbar-nav">#}
-                {#<li><a href="#">Test</a></li>#}
-                {#<li><a href="#">{% block menu %}Offre{% endblock %}</a></li>#}
-                {#<li><a href="#">Profile</a></li>#}
-            {#</ul>#}
-            {#<form class="navbar-form navbar-left" role="search">#}
-                {#<div class="form-group">#}
-                    {#<input type="text" class="form-control" placeholder="Search">#}
-                {#</div>#}
-                {#<button type="submit" class="btn btn-default">Submit</button>#}
-            {#</form>#}
-        {#</div><!-- /.navbar-collapse -->#}
-    {#</div><!-- /.container-fluid -->#}
-{#</nav>#}
-
-
-{#<div id="content">{% block content %}{% endblock %}</div>#}
-
-
-
-
-
-
-
-{#<div id="footer">#}
-    {#{% block footer %}#}
-    {#{% endblock %}#}
-{#</div>#}
-{#</body>#}
-{#</html>#}
-
-
-
