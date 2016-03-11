@@ -6,13 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cons = require('consolidate');
 
+//var session = require('express-session');
 var routes = require('./routes/index');
 var user = require('./routes/users');
 
 var app = express();
-
-
-
 
 // view engine setup
 app.engine('html',cons.twig);
@@ -26,6 +24,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+/*app.use(session({secret: "any",
+				saveUninitialized:true,
+				resave: true }));*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 
