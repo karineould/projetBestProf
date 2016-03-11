@@ -5,7 +5,7 @@
  * Created by Karine on 09/03/16.
  */
 var Sequelize = require ('sequelize');
-var db = require('./connectionDb.js');
+var db = require('./ConnectionDb.js');
 
 
 
