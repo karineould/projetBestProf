@@ -1,45 +1,41 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
+var bodyParser = require('body-parser');
 var session = require('express-session');
 
-app.use(session({
+router.use(session({
     secret: '2C44-4D44-WppQ38S',
     resave: true,
     saveUninitialized: true
 }));
 
+router.use(bodyParser.urlencoded({ extended: false }));
+
 // Authentication and Authorization Middleware
 var auth = function(req, res, next) {
-    console.log(req.session.admin);
+    //console.log(req.session.admin);
     if (req.session && req.session.user === "amy")
         return next();
     else
-        return res.render(401);
+        return res.render(403);
 };
 
 // Login endpoint
-app.get('/login', function (req, res) {
-    console.log(req.query.username);
-    console.log(req.query.password);
-    if (!req.query.username || !req.query.password) {
+router.post('/login', function (req, res) {
+    if (!req.body.username || !req.body.password) {
         res.send('login failed');
-    } else if(req.query.username === "amy" || req.query.password === "test") {
-        req.session.user = "amy";
+    } else if(req.body.username == 'amy' || req.body.password == 'test') {
+        req.session.user = 'amy';
         req.session.admin = true;
-        res.send("login success!");
+        res.redirect('/accueil');
     }
 });
 
 // Logout endpoint
-app.get('/logout', function (req, res) {
+router.get('/logout', function (req, res) {
     req.session.destroy();
     res.send("logout success!");
-});
-
-// Get content endpoint
-app.get('/content', auth, function (req, res) {
-    res.send("You can only see this after you've logged in.");
 });
 
 /* GET home page. */
@@ -55,7 +51,7 @@ router.get('/connexion', function (req,res){
 
 });
 
-router.get('/accueil', function (req,res){
+router.get('/accueil', auth,function (req,res){
 
     res.render('accueil', { type: 'prof'});
 });
