@@ -7,7 +7,7 @@ var db = require('./ConnectionDb.js');
 
 
 // DEFINE THE MODEL
-var Users = db.sequelize.define('users',{
+exports.userDb = db.sequelize.define('users',{
     id_users: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -50,21 +50,5 @@ exports.create = function(email, password, role) {
 };
 
 
-exports.authenticate = function(email, password, role) {
-    Users.find({
-        where: {
-            email_users: email,
-            password_users: password
-        }
-    }).then(function(result) {
 
-        if (!result){
-            return false;
-        }else{
-            return result.id_users;
-        }
-
-
-    });
-};
 

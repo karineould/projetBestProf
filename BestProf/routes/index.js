@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var AuthController = require('../controllers/AuthenticateController.js');
 
 router.use(session({
     secret: '2C44-4D44-WppQ38S',
@@ -12,36 +13,22 @@ router.use(session({
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-// Authentication and Authorization Middleware
-var auth = function(req, res, next) {
-    //console.log(req.session.admin);
-    if (req.session && req.session.user === "amy")
-        return next();
-    else
-        return res.render(403);
-};
 
 // Login endpoint
-router.post('/login', function (req, res) {
-    if (!req.body.username || !req.body.password) {
-        res.send('login failed');
-    } else if(req.body.username == 'amy' || req.body.password == 'test') {
-        req.session.user = 'amy';
-        req.session.admin = true;
-        res.redirect('/accueil');
-    }
+router.post('/login', AuthController.signIn, function (req, res) {
+
+    res.redirect('/accueil');
 });
 
 // Logout endpoint
 router.get('/logout', function (req, res) {
-    req.session.destroy();
     res.send("logout success!");
 });
 
 /* GET home page. */
 router.get('/', function(req, res) {
 
-
+    //console.log(req.param('id'));
   res.render('index', { title: 'Express' });
 });
 
@@ -51,9 +38,24 @@ router.get('/connexion', function (req,res){
 
 });
 
-router.get('/accueil', auth,function (req,res){
+router.get('/inscription', function (req,res){
 
-    res.render('accueil', { type: 'prof'});
+    res.render('signUp');
 });
 
+router.get('/inscriptionEtablissement',function (req,res){
+
+    res.render('signUpSchool');
+});
+
+router.get('/inscriptionEnseignant',function (req,res){
+
+    //res.render('inscription', { type: 'prof'});
+    res.send('prof');
+});
+
+
+router.get('/accueil', AuthController.auth ,function (req,res){
+    res.render('accueil');
+});
 module.exports = router;

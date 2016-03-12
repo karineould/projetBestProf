@@ -35,16 +35,11 @@
         <div class="top-content">
         	
             <div class="inner-bg">
+                {% block classContainer %}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <section id="titleConnexion"> <h2><strong>MyBestProf</strong> - Connexion </h2></section>
-                            {#<div class="description">#}
-                            	{#<p>#}
-	                            	{#This is a free responsive login form made with Bootstrap. #}
-	                            	{#Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!#}
-                            	{#</p>#}
-                            {#</div>#}
                         </div>
                     </div>
                     <div class="row">
@@ -68,7 +63,6 @@
 			                        	<label class="sr-only" for="password">Mot de passe </label>
 			                        	<input type="password" name="password" placeholder="Mot de passe ..." class="form-password form-control" id="form-password">
 			                        </div>
-                                    {#<a href="#" class="button special fit">Connexion !</a>#}
                                     <button type="submit" class="btn">Connexion !</button>
 			                    </form>
 		                    </div>
@@ -76,6 +70,7 @@
                     </div>
                     
                 </div>
+                {% endblock %}
             </div>
             
         </div>
