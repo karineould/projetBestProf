@@ -37,6 +37,8 @@ exports.userDb = db.sequelize.define('users',{
 
 
 // Create new users in your database and return its id
+
+
 exports.create = function(email, password, role) {
     var user = {
         email_users: email,

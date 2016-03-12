@@ -21,7 +21,7 @@ router.post('/login', AuthController.signIn, function (req, res) {
 });
 
 // Logout endpoint
-router.get('/logout', function (req, res) {
+router.get('/logout', AuthController.logout, function (req, res) {
     res.send("logout success!");
 });
 

@@ -13,7 +13,6 @@ var app = express();
 
 
 
-
 // view engine setup
 app.engine('html',cons.twig);
 app.set('models', path.join(__dirname, 'models'));
