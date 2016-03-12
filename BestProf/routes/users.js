@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/User.js');
 
+
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
 
     console.log(req);
   //User.create('test','test',1);
@@ -23,5 +24,5 @@ router.get('/test', function(req, res, next) {
 
     //res.redirect('/:id');
     res.send('users test');
-});
+});*/
 module.exports = router;
