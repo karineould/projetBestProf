@@ -44,6 +44,9 @@ var connexionValidate = {
         presence: {
             message: "this field is require"
         }
+        //numericality: {
+        //    onlyInteger: true
+        //}
     },
     etablissementPoste : {
         presence: {
@@ -117,16 +120,41 @@ exports.signUp = function(req, res, next){
         role_users: parseInt(req.body.userRole)
     }
 
-    User.userDb.create(newUser).then(function(user){
-        console.log(user.get());
-    });
+    User.Db.create(newUser).then(function(user){
 
+        var error = false;
 
+        if (user.get('id_users')){
 
-    //Users.create(user).then(function(users){
-    //
-    //    return users.get();
-    //})
-    res.render('signUpSchoolDone');
+            var newEtablissement = {
+                id_users_etablissement : user.get('id_users'),
+                name_etablissement : req.body.etablissementName,
+                firstname_etablissement : req.body.etablissementFirstname,
+                lastname_etablissement : req.body.etablissementLastname,
+                poste_etablissement : req.body.etablissementPoste,
+                address_etablissement : req.body.etablissementAddress,
+                ville_etablissement : req.body.etablissementVille,
+                cp_etablissement : req.body.etablissementCp,
+                phone_etablissement : parseInt(req.body.etablissementPhone)
+            }
+
+            Etablissement.Db.create(newEtablissement).then(function(etablissement){
+
+                if (!etablissement.get('id_etablissement')){
+                    error = 'error etablissement';
+                }
+
+            });/*.catch(function (err) {
+                error = err;
+            });*/ //TODO VERIF
+
+        }else{
+            error = 'error user';
+        }
+
+        res.render('signUpSchoolDone', { errorDb: error});
+    });/*.catch(function (err) {
+     error = err;
+     });*/ //TODO VERIF
 
 }

@@ -58,3 +58,5 @@ Etablissement.sync();
 //        console.dir(etablissement.get());
 //    })
 //});
+
+exports.Db = Etablissement;
