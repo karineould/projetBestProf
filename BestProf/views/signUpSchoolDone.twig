@@ -1,0 +1,130 @@
+{% extends 'connexion.twig' %}
+
+
+ {% block classContainer %}
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-8 col-sm-offset-2 text">
+                 <h1><strong>MyBestProf</strong> - Inscription - Vous êtes un établissement </h1>
+                 <div class="description">
+                     <p>
+                         <a href="http://azmind.com"><strong></strong></a>
+                     </p>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-sm-6 col-sm-offset-3 form-box" style="">
+                 <div class="form-top">
+                     <div class="form-top-left">
+                         <h3>INSCRIPTION REUSSI</h3>
+                         <p>Votre inscription a bien été enregistré, <\br>
+                             un email de confirmation à été envoyé afin de confirmer votre inscription [A voir ....]</p>
+                     </div>
+                     <div class="form-top-right">
+                         <i class="fa fa-chevron-circle-down"></i>
+                     </div>
+                 </div>
+                 {#<div class="form-bottom">#}
+                     {#<form role="form" action="/inscription-etablissement-check" method="post">#}
+                         {#<div class="row uniform 50%">#}
+                             {#<div class="\-6u">#}
+                                 {#<label style="color:white;">Formulaire établissement : </label>#}
+
+                                 {#<div class="form-group">#}
+                                     {#<label class="sr-only" for="form-etablissement ">etablissement</label>#}
+                                     {#{% if reg_error.etablissementName %}#}
+                                         {#<label style="color: #ff0000" for="username">{{ reg_error.etablissementName }}</label>#}
+                                     {#{% endif %}#}
+                                     {#<input type="text" name="etablissementName" placeholder="Etablissement ..." class="{% if reg_error.etablissementName %}input-error{% endif %}" id="singup-etablissement">#}
+                                 {#</div>#}
+                                 {#<div class="form-group">#}
+                                     {#<label class="sr-only" for="form-address">Addresse</label>#}
+                                     {#{% if reg_error.etablissementAddress %}#}
+                                         {#<label style="color: #ff0000" for="username">{{ reg_error.etablissementAddress }}</label>#}
+                                     {#{% endif %}#}
+                                     {#<input type="text" name="etablissementAddress" placeholder="Adresse ..." class="{% if reg_error.etablissementAddress %}input-error{% endif %}" id="signup-etablissement-address">#}
+                                 {#</div>#}
+                                 {#<div class="row uniform 50%">#}
+                                     {#<div class="form-group">#}
+                                         {#<label class="sr-only" for="form-city">Ville</label>#}
+                                         {#{% if reg_error.etablissementVille %}#}
+                                             {#<label style="color: #ff0000" for="username">{{ reg_error.etablissementVille }}</label>#}
+                                         {#{% endif %}#}
+                                         {#<input type="text" name="etablissementVille" placeholder="Ville ..." class="{% if reg_error.etablissementVille %}input-error{% endif %}" id="signup-etablissement-ville">#}
+                                     {#</div>#}
+                                     {#<div class="form-group">#}
+                                         {#<label class="sr-only" for="form-cp">Code postale</label>#}
+                                         {#{% if reg_error.etablissementCp %}#}
+                                             {#<label style="color: #ff0000" for="username">{{ reg_error.etablissementCp }}</label>#}
+                                         {#{% endif %}#}
+                                         {#<input type="text" name="etablissementCp" placeholder="Code postale ..." class="{% if reg_error.etablissementCp %}input-error{% endif %}" id="signup-etablissement-cp">#}
+                                     {#</div>#}
+                                 {#</div>#}
+                             {#</div>#}
+                             {#<div class="6u">#}
+                                 {#<label style="color:white;">Formulaire utilisateur : </label>#}
+                                 {#<div class="row uniform 50%">#}
+                                     {#<div class="form-group">#}
+                                         {#<label class="sr-only" for="form-nom">nom</label>#}
+                                         {#{% if reg_error.etablissementFirstname %}#}
+                                             {#<label style="color: #ff0000" for="etablissementFirstname">{{ reg_error.etablissementFirstname }}</label>#}
+                                         {#{% endif %}#}
+                                         {#<input type="text" name="etablissementFirstname" placeholder="Nom ..." class="{% if reg_error.etablissementFirstname %}input-error{% endif %}" id="signup-etablissement-nom">#}
+                                     {#</div>#}
+                                     {#<div class="form-group">#}
+                                         {#<label class="sr-only" for="form-prenom">prenom</label>#}
+                                         {#{% if reg_error.etablissementLastname %}#}
+                                             {#<label style="color: #ff0000" for="etablissementLastname">{{ reg_error.etablissementLastname }}</label>#}
+                                         {#{% endif %}#}
+                                         {#<input type="text" name="etablissementLastname" placeholder="Prénom ..." class="{% if reg_error.etablissementLastname %}input-error{% endif %}" id="signup-etablissement-prenom">#}
+                                     {#</div>#}
+                                 {#</div>#}
+                                 {#<div class="form-group">#}
+                                     {#<label class="sr-only" for="form-poste">poste</label>#}
+                                     {#{% if reg_error.etablissementPoste %}#}
+                                         {#<label style="color: #ff0000" for="etablissementPoste">{{ reg_error.etablissementPoste }}</label>#}
+                                     {#{% endif %}#}
+                                     {#<input type="text" name="etablissementPoste" placeholder="Votre poste au sein de l'établissement..." class="{% if reg_error.etablissementPoste %}input-error{% endif %}" id="signup-etablissement-poste">#}
+                                 {#</div>#}
+                                 {#<div class="form-group">#}
+                                     {#<label class="sr-only" for="form-tel">Tel</label>#}
+                                     {#{% if reg_error.etablissementPhone %}#}
+                                         {#<label style="color: #ff0000" for="etablissementPhone">{{ reg_error.etablissementPhone }}</label>#}
+                                     {#{% endif %}#}
+                                     {#<input type="text" name="etablissementPhone" placeholder="Téléphone..." class="{% if reg_error.etablissementPhone %}input-error{% endif %}" id="signup-etablissement-phone">#}
+                                 {#</div>#}
+                             {#</div>#}
+                         {#</div>#}
+                         {#<label style="color:white;">Formulaire de session : </label>#}
+                         {#<div class="form-group">#}
+                             {#<label class="sr-only" for="form-email">Email </label>#}
+                             {#{% if reg_error.userEmail %}#}
+                                 {#<label style="color: #ff0000" for="userEmail">{{ reg_error.userEmail }}</label>#}
+                             {#{% endif %}#}
+                             {#<input type="text" name="userEmail" placeholder="Email ..." class="{% if reg_error.userEmail %}input-error{% endif %}" id="signup-etablissement-email">#}
+                         {#</div>#}
+                         {#<div class="form-group">#}
+                             {#<label class="sr-only" for="form-password">Mot de passe </label>#}
+                             {#{% if reg_error.userPassword %}#}
+                                 {#<label style="color: #ff0000" for="userPassword">{{ reg_error.userPassword }}</label>#}
+                             {#{% endif %}#}
+                             {#<input type="password" name="userPassword" placeholder="Mot de passe ..." class="{% if reg_error.userPassword %}input-error{% endif %}" id="signup-etablissement-password">#}
+                         {#</div>#}
+                         {#<div class="form-group">#}
+                             {#<label class="sr-only" for="form-password">Confirmation mot de passe </label>#}
+                             {#{% if reg_error.userPasswordConfirm %}#}
+                                 {#<label style="color: #ff0000" for="userPasswordConfirm">{{ reg_error.userPasswordConfirm }}</label>#}
+                             {#{% endif %}#}
+                             {#<input type="password" name="userPasswordConfirm" placeholder="Confirmation mot de passe ..." class="{% if reg_error.userPasswordConfirm %}input-error{% endif %}" id="signup-etablissement-password-confirm">#}
+                         {#</div>#}
+                         {#<input type="hidden" name="userRole" value="2"/>#}
+                         {#<div class="form-group 4u -4u">#}
+                             {#<button type="submit" class="btn" style="background: #00CC66;">S'inscrire !</button>#}
+                         {#</div>#}
+                     {#</form>#}
+                 {#</div>#}
+             </div>
+         </div>
+     </div>
+ {% endblock %}
