@@ -4,6 +4,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var AuthController = require('../controllers/AuthenticateController.js');
+var EtablissementController = require('../controllers/EtablissementController.js');
 
 router.use(session({
     secret: '2C44-4D44-WppQ38S',
@@ -52,6 +53,9 @@ router.get('/inscriptionEnseignant',function (req,res){
 
     //res.render('inscription', { type: 'prof'});
     res.send('prof');
+});
+
+router.post('/inscriptionEtablissementRecap', EtablissementController.signUp, function (req, res) {
 });
 
 
