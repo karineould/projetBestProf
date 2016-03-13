@@ -44,6 +44,7 @@ exports.create = function(email, password, role) {
     }
 
     Users.create(user).then(function(users){
+        console.log(users.get())
         return users.get();
     })
 };

@@ -1,0 +1,96 @@
+{% extends 'connexion.twig' %}
+
+
+ {% block classContainer %}
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-8 col-sm-offset-2 text">
+                 <h1><strong>MyBestProf</strong> - Inscription - Vous êtes un établissement </h1>
+                 <div class="description">
+                     <p>
+                         <a href="http://azmind.com"><strong></strong></a>
+                     </p>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 14%; width: 85%;">
+                 <div class="form-top">
+                     <div class="form-top-left">
+                         <h3>Merci de vérifier vos données : </h3>
+                         {#<p>Pour pouvoir vous inscrire merci de bien vouloir remplir les champs suivants :</p>#}
+
+                     </div>
+                     <div class="form-top-right">
+                         <i class="fa fa-user-plus"></i>
+                     </div>
+                 </div>
+                 <div class="form-bottom">
+                     <form role="form" action="/inscription-etablissement-done" method="post" class="login-form">
+                         <div class="row uniform 50%">
+                             <div class="\-6u">
+                                 <label style="color:white;">Etablissement : </label>
+
+                                 <div class="form-group">
+                                     <label for="form-etablissement ">etablissement</label>
+                                     <input type="text" name="etablissementName" placeholder="Etablissement ..." class="form-control" id="singup-etablissement">
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="sr-only" for="form-address">Addresse</label>
+                                     <input type="text" name="etablissementAddress" placeholder="Adresse ..." class="form-control" id="signup-etablissement-address">
+                                 </div>
+                                 <div class="row uniform 50%">
+                                     <div class="form-group">
+                                         <label class="sr-only" for="form-city">Ville</label>
+                                         <input type="text" name="etablissementVille" placeholder="Ville ..." class="form-control" id="signup-etablissement-ville">
+                                     </div>
+                                     <div class="form-group">
+                                         <label class="sr-only" for="form-cp">Code postale</label>
+                                         <input type="text" name="etablissementCp" placeholder="Code postale ..." class="form-control" id="signup-etablissement-cp">
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="6u">
+                                 <label style="color:white;">Information utilisateur : </label>
+                                 <div class="row uniform 50%">
+                                     <div class="form-group">
+                                         <label class="sr-only" for="form-nom">nom</label>
+                                         <input type="text" name="userName" placeholder="Nom ..." class="form-control" id="signup-etablissement-nom">
+                                     </div>
+                                     <div class="form-group">
+                                         <label class="sr-only" for="form-prenom">prenom</label>
+                                         <input type="text" name="userLastname" placeholder="Prénom ..." class="form-control" id="signup-etablissement-prenom">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="sr-only" for="form-poste">poste</label>
+                                     <input type="text" name="etablissementPoste" placeholder="Votre poste au sein de l'établissement..." class="form-control" id="signup-etablissement-poste">
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="sr-only" for="form-tel">Tel</label>
+                                     <input type="text" name="etablissementPhone" placeholder="Téléphone..." class="form-control" id="signup-etablissement-phone">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="sr-only" for="form-email">Email </label>
+                             <input type="text" name="userEmail" placeholder="Email ..." class="form-control" id="signup-etablissement-email">
+                         </div>
+                         <div class="form-group">
+                             <label class="sr-only" for="form-password">Mot de passe </label>
+                             <input type="password" name="userPassword" placeholder="Mot de passe ..." class="form-control" id="signup-etablissement-password">
+                         </div>
+                         <div class="form-group">
+                             <label class="sr-only" for="form-password">Confirmation mot de passe </label>
+                             <input type="password" name="userPasswordConfirm" placeholder="Confirmation mot de passe ..." class="form-control" id="signup-etablissement-password-confirm">
+                         </div>
+                         <input type="hidden" name="userRole" value="2"/>
+                         <div class="form-group 4u -4u">
+                             <button type="submit" class="btn" style="background: #00CC66;">S'inscrire !</button>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+ {% endblock %}

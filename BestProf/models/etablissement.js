@@ -19,7 +19,10 @@ var Etablissement = db.sequelize.define('etablissement',{
     name_etablissement : {
         type : Sequelize.STRING
     },
-    prenom_etablissement : {
+    firstname_etablissement : {
+        type : Sequelize.STRING
+    },
+    lastname_etablissement : {
         type : Sequelize.STRING
     },
     poste_etablissement : {
@@ -42,7 +45,7 @@ var Etablissement = db.sequelize.define('etablissement',{
     }
 });
 
-//Etablissement.sync();
+Etablissement.sync();
 
 
 //Etablissement.sync().then(function(){

@@ -44,18 +44,25 @@ router.get('/inscription', function (req,res){
     res.render('signUp');
 });
 
-router.get('/inscriptionEtablissement',function (req,res){
+router.get('/inscription-etablissement',function (req,res){
 
     res.render('signUpSchool');
 });
 
-router.get('/inscriptionEnseignant',function (req,res){
+router.get('/inscription-enseignant',function (req,res){
 
     //res.render('inscription', { type: 'prof'});
     res.send('prof');
 });
 
-router.post('/inscriptionEtablissementRecap', EtablissementController.signUp, function (req, res) {
+router.post('/inscription-etablissement-check', EtablissementController.signUp, function (req, res) {
+
+    res.redirect('/inscription-etablissement-recap');
+});
+
+router.post('/inscription-etablissement-recap', /*EtablissementController.signUp,*/ function (req, res) {
+
+    res.render('signUpSchoolRecap');
 });
 
 
