@@ -30,7 +30,7 @@ var connexionValidate = {
             message: "this field is require"
         }
     },
-    etablissementFirstName : {
+    etablissementFirstname : {
         presence: {
             message: "this field is require"
         }
@@ -45,11 +45,18 @@ var connexionValidate = {
             message: "this field is require"
         }
     },
-    userEmail : {
-        email: {
+    etablissementPoste : {
+        presence: {
             message: "this field is require"
         }
-
+    },
+    userEmail : {
+        presence: {
+            message: "this field is require"
+        },
+        email: {
+            message: "doesn't look like a valid email"
+        }
     },
     userPassword : {
         presence: {
@@ -69,7 +76,7 @@ var connexionValidate = {
 };
 
 
-exports.signUp = function(req,res,next){
+exports.signUpcheck = function(req,res,next){
 
     var errorValidator = validate(
         {
@@ -77,7 +84,8 @@ exports.signUp = function(req,res,next){
             etablissementAddress: req.body.etablissementAddress,
             etablissementVille : req.body.etablissementVille,
             etablissementCp : req.body.etablissementCp,
-            etablissementFirstName : req.body.etablissementFirstName,
+            etablissementPoste : req.body.etablissementPoste,
+            etablissementFirstname : req.body.etablissementFirstname,
             etablissementLastname : req.body.etablissementLastname,
             etablissementPhone : req.body.etablissementPhone,
             userEmail : req.body.userEmail,
@@ -86,8 +94,8 @@ exports.signUp = function(req,res,next){
 
         }, connexionValidate);
 
-
-     var error = false;
+    console.log(errorValidator);
+    var error = false;
 
     if (errorValidator){
 
@@ -95,10 +103,9 @@ exports.signUp = function(req,res,next){
         return res.render('signUpSchool', {reg_error: errorValidator, notFound: error});
 
     }else {
-        User.create(req.body.userName, req.body.userEmail, req.body.userPassword, parseInt(req.body.userRole));
-
+        var data = req.body;
+        console.log(data);
+        //next();//User.create(req.body.userName, req.body.userEmail, req.body.userPassword, parseInt(req.body.userRole));
+        return res.render('signUpSchoolRecap', { dataForm : data});
     }
-    //console.log(req.body);
-    //console.log('recap');
-
 }

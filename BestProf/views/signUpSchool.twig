@@ -14,7 +14,7 @@
              </div>
          </div>
          <div class="row">
-             <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 14%; width: 85%;">
+             <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 10%; width: 85%;">
                  <div class="form-top">
                      <div class="form-top-left">
                          <h3>Inscription</h3>
@@ -70,14 +70,14 @@
                                      <div class="form-group">
                                          <label class="sr-only" for="form-nom">nom</label>
                                          {% if reg_error.etablissementFirstname %}
-                                             <label style="color: #ff0000" for="username">{{ reg_error.etablissementFirstname }}</label>
+                                             <label style="color: #ff0000" for="etablissementFirstname">{{ reg_error.etablissementFirstname }}</label>
                                          {% endif %}
                                          <input type="text" name="etablissementFirstname" placeholder="Nom ..." class="{% if reg_error.etablissementFirstname %}input-error{% endif %}" id="signup-etablissement-nom">
                                      </div>
                                      <div class="form-group">
                                          <label class="sr-only" for="form-prenom">prenom</label>
                                          {% if reg_error.etablissementLastname %}
-                                             <label style="color: #ff0000" for="username">{{ reg_error.etablissementLastname }}</label>
+                                             <label style="color: #ff0000" for="etablissementLastname">{{ reg_error.etablissementLastname }}</label>
                                          {% endif %}
                                          <input type="text" name="etablissementLastname" placeholder="Prénom ..." class="{% if reg_error.etablissementLastname %}input-error{% endif %}" id="signup-etablissement-prenom">
                                      </div>
@@ -85,14 +85,14 @@
                                  <div class="form-group">
                                      <label class="sr-only" for="form-poste">poste</label>
                                      {% if reg_error.etablissementPoste %}
-                                         <label style="color: #ff0000" for="username">{{ reg_error.etablissementPoste }}</label>
+                                         <label style="color: #ff0000" for="etablissementPoste">{{ reg_error.etablissementPoste }}</label>
                                      {% endif %}
                                      <input type="text" name="etablissementPoste" placeholder="Votre poste au sein de l'établissement..." class="{% if reg_error.etablissementPoste %}input-error{% endif %}" id="signup-etablissement-poste">
                                  </div>
                                  <div class="form-group">
                                      <label class="sr-only" for="form-tel">Tel</label>
                                      {% if reg_error.etablissementPhone %}
-                                         <label style="color: #ff0000" for="username">{{ reg_error.etablissementPhone }}</label>
+                                         <label style="color: #ff0000" for="etablissementPhone">{{ reg_error.etablissementPhone }}</label>
                                      {% endif %}
                                      <input type="text" name="etablissementPhone" placeholder="Téléphone..." class="{% if reg_error.etablissementPhone %}input-error{% endif %}" id="signup-etablissement-phone">
                                  </div>
@@ -102,21 +102,21 @@
                          <div class="form-group">
                              <label class="sr-only" for="form-email">Email </label>
                              {% if reg_error.userEmail %}
-                                 <label style="color: #ff0000" for="username">{{ reg_error.userEmail }}</label>
+                                 <label style="color: #ff0000" for="userEmail">{{ reg_error.userEmail }}</label>
                              {% endif %}
                              <input type="text" name="userEmail" placeholder="Email ..." class="{% if reg_error.userEmail %}input-error{% endif %}" id="signup-etablissement-email">
                          </div>
                          <div class="form-group">
                              <label class="sr-only" for="form-password">Mot de passe </label>
                              {% if reg_error.userPassword %}
-                                 <label style="color: #ff0000" for="username">{{ reg_error.userPassword }}</label>
+                                 <label style="color: #ff0000" for="userPassword">{{ reg_error.userPassword }}</label>
                              {% endif %}
                              <input type="password" name="userPassword" placeholder="Mot de passe ..." class="{% if reg_error.userPassword %}input-error{% endif %}" id="signup-etablissement-password">
                          </div>
                          <div class="form-group">
                              <label class="sr-only" for="form-password">Confirmation mot de passe </label>
                              {% if reg_error.userPasswordConfirm %}
-                                 <label style="color: #ff0000" for="username">{{ reg_error.userPasswordConfirm }}</label>
+                                 <label style="color: #ff0000" for="userPasswordConfirm">{{ reg_error.userPasswordConfirm }}</label>
                              {% endif %}
                              <input type="password" name="userPasswordConfirm" placeholder="Confirmation mot de passe ..." class="{% if reg_error.userPasswordConfirm %}input-error{% endif %}" id="signup-etablissement-password-confirm">
                          </div>

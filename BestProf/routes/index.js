@@ -55,13 +55,14 @@ router.get('/inscription-enseignant',function (req,res){
     res.send('prof');
 });
 
-router.post('/inscription-etablissement-check', EtablissementController.signUp, function (req, res) {
+router.post('/inscription-etablissement-check', EtablissementController.signUpcheck, function (req, res) {
 
-    res.redirect('/inscription-etablissement-recap');
+    //res.redirect('/inscription-etablissement-recap');
 });
 
-router.post('/inscription-etablissement-recap', /*EtablissementController.signUp,*/ function (req, res) {
+router.get('/inscription-etablissement-recap', /*EtablissementController.signUp,*/ function (req, res) {
 
+    console.log(req.body);
     res.render('signUpSchoolRecap');
 });
 
