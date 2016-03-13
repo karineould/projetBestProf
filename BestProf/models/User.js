@@ -36,9 +36,6 @@ exports.userDb = db.sequelize.define('users',{
 //});
 
 
-// Create new users in your database and return its id
-
-
 exports.create = function(email, password, role) {
     var user = {
         email_users: email,
@@ -53,4 +50,34 @@ exports.create = function(email, password, role) {
 
 
 
+exports.update = function(req,res){
+    Users.findById(req.params.id, function (err, user) {
+        if (err) throw err;
+
+        // change the users location
+        user.name = req.body;
+
+        // save the user
+        user.save(function (err) {
+            if (err) throw err;
+
+            console.log('User successfully updated!');
+        });
+        res.render('myProfil')
+    });
+};
+
+exports.delete = function(req, res){
+    Users.findById(req.params.id, function (err, user) {
+        if (err) throw err;
+
+        // delete him
+        user.remove(function (err) {
+            if (err) throw err;
+
+            console.log('User successfully deleted!');
+        });
+    });
+    res.render('deleteUser');
+};
 

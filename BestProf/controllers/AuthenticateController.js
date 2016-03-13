@@ -5,7 +5,6 @@ var session = require('express-session');
 var validate = require("validate.js");
 var db = require('../models/ConnectionDb.js');
 var User = require('../models/User.js');
-//var UserController = require('./UsersController.js');
 
 
 
