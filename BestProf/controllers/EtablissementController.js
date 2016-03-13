@@ -104,8 +104,29 @@ exports.signUpcheck = function(req,res,next){
 
     }else {
         var data = req.body;
-        console.log(data);
-        //next();//User.create(req.body.userName, req.body.userEmail, req.body.userPassword, parseInt(req.body.userRole));
         return res.render('signUpSchoolRecap', { dataForm : data});
     }
+}
+
+exports.signUp = function(req, res, next){
+
+
+    var newUser = {
+        email_users: req.body.userEmail,
+        password_users: req.body.userPassword,
+        role_users: parseInt(req.body.userRole)
+    }
+
+    User.userDb.create(newUser).then(function(user){
+        console.log(user.get());
+    });
+
+
+
+    //Users.create(user).then(function(users){
+    //
+    //    return users.get();
+    //})
+    res.render('signUpSchoolDone');
+
 }

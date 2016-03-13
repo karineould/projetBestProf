@@ -36,18 +36,18 @@ exports.userDb = db.sequelize.define('users',{
 //});
 
 
-exports.create = function(email, password, role) {
-    var user = {
-        email_users: email,
-        password_users: password,
-        role_users: role
-    }
-
-    Users.create(user).then(function(users){
-        console.log(users.get())
-        return users.get();
-    })
-};
+//exports.create = function(email, password, role) {
+//    var user = {
+//        email_users: email,
+//        password_users: password,
+//        role_users: role
+//    }
+//
+//    Users.create(user).then(function(users){
+//        console.log(users.get())
+//        return users.get();
+//    })
+//};
 
 
 

@@ -56,14 +56,9 @@ router.get('/inscription-enseignant',function (req,res){
 });
 
 router.post('/inscription-etablissement-check', EtablissementController.signUpcheck, function (req, res) {
-
-    //res.redirect('/inscription-etablissement-recap');
 });
 
-router.get('/inscription-etablissement-recap', /*EtablissementController.signUp,*/ function (req, res) {
-
-    console.log(req.body);
-    res.render('signUpSchoolRecap');
+router.post('/inscription-etablissement-done', EtablissementController.signUp, function (req, res) {
 });
 
 
