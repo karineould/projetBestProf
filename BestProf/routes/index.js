@@ -61,8 +61,7 @@ router.post('/inscription-etablissement-check', EtablissementController.signUpch
 router.post('/inscription-etablissement-done', EtablissementController.signUp, function (req, res) {
 });
 
-
-router.get('/accueil', AuthController.auth ,function (req,res){
+router.get('/accueil',/* AuthController.auth ,*/function (req,res){
     res.render('accueil');
 });
 module.exports = router;
