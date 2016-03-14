@@ -144,17 +144,13 @@ exports.signUp = function(req, res, next){
                     error = 'error etablissement';
                 }
 
-            });/*.catch(function (err) {
-                error = err;
-            });*/ //TODO VERIF
+            });
 
         }else{
             error = 'error user';
         }
 
         res.render('signUpSchoolDone', { errorDb: error});
-    });/*.catch(function (err) {
-     error = err;
-     });*/ //TODO VERIF
+    });
 
 }

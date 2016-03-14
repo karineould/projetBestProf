@@ -36,6 +36,7 @@ exports.auth = function(req, res, next) {
 
 exports.signIn = function(req, res, next) {
     console.log(req.body.username);
+
     var errorValidator = validate(
         {
             username: req.body.username,
@@ -45,6 +46,7 @@ exports.signIn = function(req, res, next) {
 
     var error = false;
 
+    console.log(errorValidator);
     if (errorValidator){
 
         error = 'Erreur de saisie ! ';
@@ -52,7 +54,7 @@ exports.signIn = function(req, res, next) {
 
     }else{
 
-        User.userDb.find({
+        User.Db.find({
             where: {
                 email_users: req.body.username,
                 password_users: req.body.password
