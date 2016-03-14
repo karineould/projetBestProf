@@ -7,7 +7,7 @@ var Sequelize = require('sequelize');
 
 var db = new Sequelize('BestProf', 'root', 'root', {
     dialect : 'mysql',
-    port: 8889,
+    port: 3306,
     host: 'localhost'
 });
 
