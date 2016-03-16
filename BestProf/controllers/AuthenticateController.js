@@ -3,8 +3,7 @@
  */
 var session = require('express-session');
 var validate = require("validate.js");
-var db = require('../models/ConnectionDb.js');
-var User = require('../models/User.js');
+var models  = require('../models');
 
 
 
@@ -35,7 +34,7 @@ exports.auth = function(req, res, next) {
 
 
 exports.signIn = function(req, res, next) {
-    console.log(req.body.username);
+    console.log(req.body);
 
     var errorValidator = validate(
         {
@@ -46,7 +45,7 @@ exports.signIn = function(req, res, next) {
 
     var error = false;
 
-    console.log(errorValidator);
+    //console.log(errorValidator);
     if (errorValidator){
 
         error = 'Erreur de saisie ! ';
@@ -54,7 +53,7 @@ exports.signIn = function(req, res, next) {
 
     }else{
 
-        User.Db.find({
+        models.sers.find({
             where: {
                 email_users: req.body.username,
                 password_users: req.body.password
@@ -62,7 +61,7 @@ exports.signIn = function(req, res, next) {
         }).then(function(result) {
 
             error = 'Email ou password introuvable !';
-
+            console.log(result);
             if (!result){
                 return res.render('connexion', {notFound: error});
             }else{

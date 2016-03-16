@@ -2,45 +2,43 @@
  * Created by Karine on 12/03/16.
  */
 var validate = require("validate.js");
-var db = require('../models/ConnectionDb.js');
-var Etablissement = require('../models/Etablissement.js');
-var User = require('../models/User.js');
+var models  = require('../models');
 
 
-var connexionValidate = {
-    etablissementName: {
-        presence: {
-            message: "doesn't look like a valid email"
-        }
-
-    },
-    etablissementAddress: {
-        presence: {
-            message: "this field is require"
-        }
-    },
-    etablissementVille : {
+var signUpValidate = {
+    Name: {
         presence: {
             message: "this field is require"
         }
 
     },
-    etablissementCp : {
+    Address: {
         presence: {
             message: "this field is require"
         }
     },
-    etablissementFirstname : {
+    Ville : {
+        presence: {
+            message: "this field is require"
+        }
+
+    },
+    Cp : {
         presence: {
             message: "this field is require"
         }
     },
-    etablissementLastname : {
+    Firstname : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
     },
-    etablissementPhone : {
+    Lastname : {
+        presence: {
+            message: "champs requis"
+        }
+    },
+    Phone : {
         presence: {
             message: "this field is require"
         }
@@ -48,12 +46,12 @@ var connexionValidate = {
         //    onlyInteger: true
         //}
     },
-    etablissementPoste : {
+    Poste : {
         presence: {
             message: "this field is require"
         }
     },
-    userEmail : {
+    Email : {
         presence: {
             message: "this field is require"
         },
@@ -61,7 +59,7 @@ var connexionValidate = {
             message: "doesn't look like a valid email"
         }
     },
-    userPassword : {
+    Password : {
         presence: {
             message: "this field is require"
         },
@@ -70,32 +68,18 @@ var connexionValidate = {
             message: "must be at least 6 characters"
         }
     },
-    userPasswordConfirm : {
+    PasswordConfirm : {
         presence: {
             message: "this field is require"
         },
-        equality: "userPassword"
+        equality: "Password"
     }
 };
 
 
 exports.signUpcheck = function(req,res,next){
 
-    var errorValidator = validate(
-        {
-            etablissementName: req.body.etablissementName,
-            etablissementAddress: req.body.etablissementAddress,
-            etablissementVille : req.body.etablissementVille,
-            etablissementCp : req.body.etablissementCp,
-            etablissementPoste : req.body.etablissementPoste,
-            etablissementFirstname : req.body.etablissementFirstname,
-            etablissementLastname : req.body.etablissementLastname,
-            etablissementPhone : req.body.etablissementPhone,
-            userEmail : req.body.userEmail,
-            userPassword : req.body.userPassword,
-            userPasswordConfirm :  req.body.userPasswordConfirm
-
-        }, connexionValidate);
+    var errorValidator = validate(req.body, signUpValidate);
 
     console.log(errorValidator);
     var error = false;
@@ -113,32 +97,34 @@ exports.signUpcheck = function(req,res,next){
 
 exports.signUp = function(req, res, next){
 
-
+    console.log(req.body);
     var newUser = {
-        email_users: req.body.userEmail,
-        password_users: req.body.userPassword,
-        role_users: parseInt(req.body.userRole)
-    }
+        email_users: req.body.Email,
+        password_users: req.body.Password,
+        role_users: 2
+    };
 
-    User.Db.create(newUser).then(function(user){
+    models.users.create(newUser/*, {
+        include: [models.etablissement]
+    }*/).then(function(user){
 
         var error = false;
-
+        console.log(user.get('id_users'));
         if (user.get('id_users')){
 
             var newEtablissement = {
-                id_users_etablissement : user.get('id_users'),
-                name_etablissement : req.body.etablissementName,
-                firstname_etablissement : req.body.etablissementFirstname,
-                lastname_etablissement : req.body.etablissementLastname,
-                poste_etablissement : req.body.etablissementPoste,
-                address_etablissement : req.body.etablissementAddress,
-                ville_etablissement : req.body.etablissementVille,
-                cp_etablissement : req.body.etablissementCp,
-                phone_etablissement : parseInt(req.body.etablissementPhone)
+                id_users_etablissement : parseInt(user.get('id_users')),
+                name_etablissement : req.body.Name,
+                firstname_etablissement : req.body.Firstname,
+                lastname_etablissement : req.body.Lastname,
+                poste_etablissement : req.body.Poste,
+                address_etablissement : req.body.Address,
+                ville_etablissement : req.body.Ville,
+                cp_etablissement : req.body.Cp,
+                phone_etablissement : req.body.Phone
             }
 
-            Etablissement.Db.create(newEtablissement).then(function(etablissement){
+            models.etablissement.create(newEtablissement).then(function(etablissement){
 
                 if (!etablissement.get('id_etablissement')){
                     error = 'error etablissement';
@@ -150,7 +136,7 @@ exports.signUp = function(req, res, next){
             error = 'error user';
         }
 
-        res.render('signUpSchoolDone', { errorDb: error});
+        res.render('signUpDone', { errorDb: error});
     });
 
 }

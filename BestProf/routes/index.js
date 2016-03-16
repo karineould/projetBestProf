@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var AuthController = require('../controllers/AuthenticateController.js');
 var EtablissementController = require('../controllers/EtablissementController.js');
+var EnseignantController = require('../controllers/EnseignantController.js');
+var models = require('../models');
 
 router.use(session({
     secret: '2C44-4D44-WppQ38S',
@@ -18,7 +20,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 // Login endpoint
 router.post('/login', AuthController.signIn, function (req, res) {
 
-    res.redirect('/accueil');
+    res.redirect('/users/');
 });
 
 // Logout endpoint
@@ -51,8 +53,7 @@ router.get('/inscription-etablissement',function (req,res){
 
 router.get('/inscription-enseignant',function (req,res){
 
-    //res.render('inscription', { type: 'prof'});
-    res.send('prof');
+    res.render('signUpProf');
 });
 
 router.post('/inscription-etablissement-check', EtablissementController.signUpcheck, function (req, res) {
@@ -61,7 +62,11 @@ router.post('/inscription-etablissement-check', EtablissementController.signUpch
 router.post('/inscription-etablissement-done', EtablissementController.signUp, function (req, res) {
 });
 
-router.get('/accueil',/* AuthController.auth ,*/function (req,res){
-    res.render('accueil');
+router.post('/inscription-enseignant-check', EnseignantController.signUpcheck, function (req, res) {
 });
+
+router.post('/inscription-enseignant-done', EnseignantController.signUp, function (req, res) {
+});
+
+
 module.exports = router;

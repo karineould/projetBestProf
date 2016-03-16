@@ -9,14 +9,13 @@
 
 {% block menu %}
     <header id="header" class="alt">
-        <h1 style=" font-size: 15px;"><a href="/">MyBestProf</a> by TEAM 2</h1>
         <nav id="nav">
             <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/">Test</a></li>
-                <li><a href="/">monProfile</a></li>
-                {#<li><a href="/inscription" class="button">Inscription</a></li>#}
-                <li><a href="/logout" class="button">Deconnexion</a></li>
+                <li><a href="/users/"><strong>Accueil</strong></a></li>
+                <li><a href="/users/mes-offres"><strong>Mes offres</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Candidats</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Mon profile</strong></a></li>
+                <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
             </ul>
         </nav>
     </header>
@@ -24,101 +23,66 @@
 
 {% block banner %}
     <!-- Banner -->
-    <section id="banner">
-        <h2>MyBestProf</h2>
-        <p>L'agence de recrutement spécialisée dans l'enseignement.</p>
-    </section>
+    <div class="top-content">
+
+        <div class="inner-bg">
+            <section {#id="banner"#}>
+                <h1 style="color: black;">MyBestProf - Accueil</h1>
+                <p style="color: black;">L'agence de recrutement spécialisée dans l'enseignement.</p>
+                <p style="color: black;">[TEXTE EXPLICATIVE]</p>
+
+                <br/><br/>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="6u 12u(narrower)">
+                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); ">
+                                {#<span class="image featured"><img src="images/etabliss.jpg" alt="" /></span>#}
+                                <h3 style="color: #fff;">Créer votre offre</h3>
+                                <p style="color: #fff;"> [ a definir avec jordy ou jean ]</p>
+                                <ul class="actions">
+                                    <li><a href="/" class="btn" style="background: #00CC66;">CREER</a></li>
+                                </ul>
+                            </section>
+                        </div>
+
+
+                        <div class="6u 12u(narrower)">
+
+                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff;">
+                                {#<span class="image featured"><img src="images/prof.jpg" alt="" /></span>#}
+                                <h3 style="color: #fff;">Rechercher un candidat</h3>
+                                <p style="color: #fff;"> [ a definir avec jordy ou jean ]</p>
+                                <ul class="actions">
+                                    <li><a  href="/" class="btn" style="background: #00CC66;" >RECHERCHER</a></li>
+                                </ul>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
 {% endblock %}
 
-{#{% block banner %}#}
-    {#<!-- Banner -->#}
-    {#<section id="banner">#}
-        {#<h2><strong>MyBestProf</strong></h2>#}
-        {#<p>L'agence de recrutement spécialisée dans l'enseignement.</p>#}
-        {#&#123;&#35;<ul class="actions">&#35;&#125;#}
-            {#&#123;&#35;<li><a href="/inscription" class="button special">Inscription</a></li>&#35;&#125;#}
-            {#&#123;&#35;<li><a href="/connexion" class="button">Connexion</a></li>&#35;&#125;#}
-        {#&#123;&#35;</ul>&#35;&#125;#}
 
-        {#&#123;&#35;<div id="carousselAccueil" style="height: 300px; margin-top: 100px;" class="carousel slide" data-ride="carousel">&#35;&#125;#}
-            {#&#123;&#35;<!-- Indicators -->&#35;&#125;#}
-            {#&#123;&#35;<ol class="carousel-indicators">&#35;&#125;#}
-                {#&#123;&#35;<li data-target="#carousselAccueil" data-slide-to="0" class="active"></li>&#35;&#125;#}
-                {#&#123;&#35;<li data-target="#carousselAccueil" data-slide-to="1"></li>&#35;&#125;#}
-                {#&#123;&#35;<li data-target="#carousselAccueil" data-slide-to="2"></li>&#35;&#125;#}
-            {#&#123;&#35;</ol>&#35;&#125;#}
+{#{% block content %}#}
 
-            {#&#123;&#35;<!-- Wrapper for slides -->&#35;&#125;#}
-            {#&#123;&#35;<div class="carousel-inner" role="listbox">&#35;&#125;#}
-                {#&#123;&#35;<div class="item active">&#35;&#125;#}
-                    {#&#123;&#35;<img src="&#123;&#35;images/s1.png&#35;&#125;" alt="...">&#35;&#125;#}
-                    {#&#123;&#35;<div class="carousel-caption">&#35;&#125;#}
-                        {#&#123;&#35;<h3>TEXTE ICI</h3>&#35;&#125;#}
-                    {#&#123;&#35;</div>&#35;&#125;#}
-                {#&#123;&#35;</div>&#35;&#125;#}
-                {#&#123;&#35;<div class="item">&#35;&#125;#}
-                    {#&#123;&#35;<img src="&#123;&#35;images/s2.png&#35;&#125;" alt="...">&#35;&#125;#}
-                    {#&#123;&#35;<div class="carousel-caption">&#35;&#125;#}
-                        {#&#123;&#35;<h3>TEXTE ICI</h3>&#35;&#125;#}
-                    {#&#123;&#35;</div>&#35;&#125;#}
-                {#&#123;&#35;</div>&#35;&#125;#}
-                {#&#123;&#35;<div class="item">&#35;&#125;#}
-                    {#&#123;&#35;<img src="&#123;&#35;images/s3.png&#35;&#125;" alt="...">&#35;&#125;#}
-                    {#&#123;&#35;<div class="carousel-caption">&#35;&#125;#}
-                        {#&#123;&#35;<h3>TEXTE ICI</h3>&#35;&#125;#}
-                    {#&#123;&#35;</div>&#35;&#125;#}
-                {#&#123;&#35;</div>&#35;&#125;#}
-            {#&#123;&#35;</div>&#35;&#125;#}
-
-            {#&#123;&#35;<!-- Controls -->&#35;&#125;#}
-            {#&#123;&#35;<a class="left carousel-control" href="#carousselAccueil" role="button" data-slide="prev">&#35;&#125;#}
-                {#&#123;&#35;<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&#35;&#125;#}
-                {#&#123;&#35;<span class="sr-only">Previous</span>&#35;&#125;#}
-            {#&#123;&#35;</a>&#35;&#125;#}
-            {#&#123;&#35;<a class="right carousel-control" href="#carousselAccueil" role="button" data-slide="next">&#35;&#125;#}
-                {#&#123;&#35;<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>&#35;&#125;#}
-                {#&#123;&#35;<span class="sr-only">Next</span>&#35;&#125;#}
-            {#&#123;&#35;</a>&#35;&#125;#}
-        {#&#123;&#35;</div>&#35;&#125;#}
-
-    {#</section>#}
 {#{% endblock %}#}
 
 {% block content %}
-    <section class="box special" style=" background: rgba(240,240,240, 0.9); ">
-        <header class="major">
-            <h3>TITRE</h3>
-            <p>TEXTE ICI</p>
-        </header>
+{% endblock %}
 
-        <div class="row">
-            <div class="6u 12u(narrower)">
-                <section class="box special" style="background: rgba(0, 0, 0, 0.5); ">
-                    <h3>Créer votre offre</h3>
-                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt" style="color: black;">COMMENCER</a></li>
-                    </ul>
-                </section>
-
-            </div>
-            <div class="6u 12u(narrower)">
-
-                <section class="box special" style="background: rgba(0, 0, 0, 0.5); ">
-                    <h3>Créer votre formulaire</h3>
-                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt" style="color: black;">COMMENCER</a></li>
-                    </ul>
-                </section>
-
-            </div>
-        </div>
-    </section>
+{% block sousContent %}
 {% endblock %}
 
 
-
+{% block script %}
+{% endblock %}
 {#{% block script %}#}
     {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
 

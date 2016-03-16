@@ -13,6 +13,7 @@ var app = express();
 
 
 
+
 // view engine setup
 app.engine('html',cons.twig);
 app.set('models', path.join(__dirname, 'models'));
@@ -31,7 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ROUTING
 app.use('/', routes);
 app.use('/users', user);
-
 
 
 // catch 404 and forward to error handler

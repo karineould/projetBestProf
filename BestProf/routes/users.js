@@ -1,17 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/User.js');
-var UserController = require('../controllers/UsersController.js');
+//var User = require('../models/User.js');
+var AuthController = require('../controllers/AuthenticateController.js');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', AuthController.auth, function(req, res, next) {
 
+        res.render('accueil', {admin: req.session.admin});
 
-  //User.create('test','test',1);
-    UserController.authenticate('test','test',1);
-
-  //res.redirect('/:id');
-    res.send('users test');
 });
 
 

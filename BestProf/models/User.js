@@ -1,27 +1,49 @@
 /**
  * Created by Karine on 09/03/16.
  */
-var Sequelize = require ('sequelize');
-var db = require('./ConnectionDb.js');
-
-
+"use strict";
 
 // DEFINE THE MODEL
-var Users = db.sequelize.define('users',{
-    id_users: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    email_users : {
-        type : Sequelize.STRING
-    },
-    password_users: {
-        type : Sequelize.STRING
-    },
-    role_users: Sequelize.INTEGER
-});
+module.exports = function(sequelize, DataTypes){
 
+    var User = sequelize.define('users',{
+        id_users: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        email_users : {
+            type : DataTypes.STRING
+        },
+        password_users: {
+            type : DataTypes.STRING
+        },
+        role_users: DataTypes.INTEGER
+    }/*, {
+        classMethods: {
+            associate: function(models) {
+                User.hasMany(models.etablissement);
+            }
+        }
+    }*/);
+
+    return User;
+};
+
+//var Users = sequelize.define('users',{
+//    id_users: {
+//        type: Sequelize.INTEGER,
+//        primaryKey: true,
+//        autoIncrement: true
+//    },
+//    email_users : {
+//        type : Sequelize.STRING
+//    },
+//    password_users: {
+//        type : Sequelize.STRING
+//    },
+//    role_users: Sequelize.INTEGER
+//});
 //-------UNCOMMENT TO CREATE THE USER ADMIN -------
 
 //
@@ -84,5 +106,63 @@ var Users = db.sequelize.define('users',{
 //    });
 //    res.render('deleteUser');
 //};
-
-exports.Db = Users;
+//
+//var UserModel = {
+//    create: function (req, res) {
+//        var user = {
+//            email_users: req.body.email,
+//            password_users: req.body.password,
+//            role_users: req.body.role
+//        }
+//        Users.create(user).then(function (users) {
+//            return users.get();
+//        });
+//        console.log('email : ' + req.body.email);
+//        console.log('email : ' + req.body.password);
+//        console.log('email : ' + req.body.role);
+//    },
+//
+//    update: function (req, res) {
+//        Users.findById(req.params.id, function (err, user) {
+//            if (err) throw err;
+//
+//            // change the users location
+//            user.name = req.body;
+//
+//            // save the user
+//            user.save(function (err) {
+//                if (err) throw err;
+//
+//                console.log('User successfully updated!');
+//            });
+//            //res.render('myProfil') : Renvoyer sur la page "Mon profil"
+//        });
+//    },
+//    delete: function (req, res) {
+//        Users.findById(req.params.id, function (err, user) {
+//            if (err) throw err;
+//
+//            // delete him
+//            user.remove(function (err) {
+//                if (err) throw err;
+//
+//                console.log('User successfully deleted!');
+//            });
+//        });
+//        //res.render('deleteUser'); : Renvoyer sur la page "DeleteUser"
+//    },
+//    checkConnexion: function(req, res){
+//
+//        //model.
+//        Users.find({
+//            where: {
+//                email_users: req.body.username,
+//                password_users: req.body.password
+//            }
+//        }).then(function(result) {
+//            // console.log(result);
+//            return result;
+//        });
+//    }
+//
+//};

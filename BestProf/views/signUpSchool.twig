@@ -34,33 +34,29 @@
                                  <label style="color:white;">Formulaire établissement : </label>
 
                                  <div class="form-group">
-                                     <label class="sr-only" for="form-etablissement ">etablissement</label>
-                                     {% if reg_error.etablissementName %}
-                                         <label style="color: #ff0000" for="username">{{ reg_error.etablissementName }}</label>
+                                     {% if reg_error.Name %}
+                                     <label class="{#sr-only#}" style="color: #ff0000" for="form-etablissement ">{{ reg_error.Name }}</label>
                                      {% endif %}
-                                     <input type="text" name="etablissementName" placeholder="Etablissement ..." class="{% if reg_error.etablissementName %}input-error{% endif %}" id="singup-etablissement">
+                                     <input type="text" name="Name" placeholder="Etablissement ..." class="{% if reg_error.Name %}input-error{% endif %}" id="singup-etablissement">
                                  </div>
                                  <div class="form-group">
-                                     <label class="sr-only" for="form-address">Addresse</label>
-                                     {% if reg_error.etablissementAddress %}
-                                         <label style="color: #ff0000" for="username">{{ reg_error.etablissementAddress }}</label>
+                                     {% if reg_error.Address %}
+                                         <label style="color: #ff0000" class="" for="form-address">{{ reg_error.Address }}</label>
                                      {% endif %}
-                                     <input type="text" name="etablissementAddress" placeholder="Adresse ..." class="{% if reg_error.etablissementAddress %}input-error{% endif %}" id="signup-etablissement-address">
+                                     <input type="text" name="Address" placeholder="Adresse ..." class="{% if reg_error.Address %}input-error{% endif %}" id="signup-etablissement-address">
                                  </div>
                                  <div class="row uniform 50%">
                                      <div class="form-group">
-                                         <label class="sr-only" for="form-city">Ville</label>
-                                         {% if reg_error.etablissementVille %}
-                                             <label style="color: #ff0000" for="username">{{ reg_error.etablissementVille }}</label>
+                                         {% if reg_error.Ville %}
+                                             <label style="color: #ff0000" class="" for="form-city">{{ reg_error.Ville }}</label>
                                          {% endif %}
-                                         <input type="text" name="etablissementVille" placeholder="Ville ..." class="{% if reg_error.etablissementVille %}input-error{% endif %}" id="signup-etablissement-ville">
+                                         <input type="text" name="Ville" placeholder="Ville ..." class="{% if reg_error.Ville %}input-error{% endif %}" id="signup-etablissement-ville">
                                      </div>
                                      <div class="form-group">
-                                         <label class="sr-only" for="form-cp">Code postale</label>
-                                         {% if reg_error.etablissementCp %}
-                                             <label style="color: #ff0000" for="username">{{ reg_error.etablissementCp }}</label>
+                                         {% if reg_error.Cp %}
+                                             <label style="color: #ff0000"  class="" for="form-cp">{{ reg_error.Cp }}</label>
                                          {% endif %}
-                                         <input type="text" name="etablissementCp" placeholder="Code postale ..." class="{% if reg_error.etablissementCp %}input-error{% endif %}" id="signup-etablissement-cp">
+                                         <input type="text" name="Cp" placeholder="Code postale ..." class="{% if reg_error.Cp %}input-error{% endif %}" id="signup-etablissement-cp">
                                      </div>
                                  </div>
                              </div>
@@ -68,59 +64,52 @@
                                  <label style="color:white;">Formulaire utilisateur : </label>
                                  <div class="row uniform 50%">
                                      <div class="form-group">
-                                         <label class="sr-only" for="form-nom">nom</label>
-                                         {% if reg_error.etablissementFirstname %}
-                                             <label style="color: #ff0000" for="etablissementFirstname">{{ reg_error.etablissementFirstname }}</label>
+                                         {% if reg_error.Lastname %}
+                                             <label style="color: #ff0000" class="" for="form-nom">{{ reg_error.Lastname }}</label>
                                          {% endif %}
-                                         <input type="text" name="etablissementFirstname" placeholder="Nom ..." class="{% if reg_error.etablissementFirstname %}input-error{% endif %}" id="signup-etablissement-nom">
+                                         <input type="text" name="Lastname" placeholder="Nom ..." class="{% if reg_error.Lastname %}input-error{% endif %}" id="signup-etablissement-nom">
                                      </div>
                                      <div class="form-group">
-                                         <label class="sr-only" for="form-prenom">prenom</label>
-                                         {% if reg_error.etablissementLastname %}
-                                             <label style="color: #ff0000" for="etablissementLastname">{{ reg_error.etablissementLastname }}</label>
+                                         {% if reg_error.Firstname %}
+                                             <label style="color: #ff0000" class="" for="form-prenom">{{ reg_error.Firstname }}</label>
                                          {% endif %}
-                                         <input type="text" name="etablissementLastname" placeholder="Prénom ..." class="{% if reg_error.etablissementLastname %}input-error{% endif %}" id="signup-etablissement-prenom">
+                                         <input type="text" name="Firstname" placeholder="Prénom ..." class="{% if reg_error.Firstname %}input-error{% endif %}" id="signup-etablissement-prenom">
                                      </div>
                                  </div>
                                  <div class="form-group">
-                                     <label class="sr-only" for="form-poste">poste</label>
-                                     {% if reg_error.etablissementPoste %}
-                                         <label style="color: #ff0000" for="etablissementPoste">{{ reg_error.etablissementPoste }}</label>
+                                     {% if reg_error.Poste %}
+                                         <label style="color: #ff0000" class="" for="form-poste">{{ reg_error.Poste }}</label>
                                      {% endif %}
-                                     <input type="text" name="etablissementPoste" placeholder="Votre poste au sein de l'établissement..." class="{% if reg_error.etablissementPoste %}input-error{% endif %}" id="signup-etablissement-poste">
+                                     <input type="text" name="Poste" placeholder="Votre poste au sein de l'établissement..." class="{% if reg_error.Poste %}input-error{% endif %}" id="signup-etablissement-poste">
                                  </div>
                                  <div class="form-group">
-                                     <label class="sr-only" for="form-tel">Tel</label>
-                                     {% if reg_error.etablissementPhone %}
-                                         <label style="color: #ff0000" for="etablissementPhone">{{ reg_error.etablissementPhone }}</label>
+                                     {% if reg_error.Phone %}
+                                         <label style="color: #ff0000" class="" for="form-tel">{{ reg_error.Phone }}</label>
                                      {% endif %}
-                                     <input type="text" name="etablissementPhone" placeholder="Téléphone..." class="{% if reg_error.etablissementPhone %}input-error{% endif %}" id="signup-etablissement-phone">
+                                     <input type="text" name="Phone" placeholder="Téléphone..." class="{% if reg_error.Phone %}input-error{% endif %}" id="signup-etablissement-phone">
                                  </div>
                              </div>
                          </div>
                          <label style="color:white;">Formulaire de session : </label>
                          <div class="form-group">
-                             <label class="sr-only" for="form-email">Email </label>
-                             {% if reg_error.userEmail %}
-                                 <label style="color: #ff0000" for="userEmail">{{ reg_error.userEmail }}</label>
+                             {% if reg_error.Email %}
+                                 <label style="color: #ff0000" class="" for="form-email">{{ reg_error.Email }}</label>
                              {% endif %}
-                             <input type="text" name="userEmail" placeholder="Email ..." class="{% if reg_error.userEmail %}input-error{% endif %}" id="signup-etablissement-email">
+                             <input type="text" name="Email" placeholder="Email ..." class="{% if reg_error.Email %}input-error{% endif %}" id="signup-etablissement-email">
                          </div>
                          <div class="form-group">
-                             <label class="sr-only" for="form-password">Mot de passe </label>
-                             {% if reg_error.userPassword %}
-                                 <label style="color: #ff0000" for="userPassword">{{ reg_error.userPassword }}</label>
+                             {% if reg_error.Password %}
+                                 <label style="color: #ff0000" class="" for="form-password">{{ reg_error.Password }}</label>
                              {% endif %}
-                             <input type="password" name="userPassword" placeholder="Mot de passe ..." class="{% if reg_error.userPassword %}input-error{% endif %}" id="signup-etablissement-password">
+                             <input type="password" name="Password" placeholder="Mot de passe ..." class="{% if reg_error.Password %}input-error{% endif %}" id="signup-etablissement-password">
                          </div>
                          <div class="form-group">
-                             <label class="sr-only" for="form-password">Confirmation mot de passe </label>
-                             {% if reg_error.userPasswordConfirm %}
-                                 <label style="color: #ff0000" for="userPasswordConfirm">{{ reg_error.userPasswordConfirm }}</label>
+                             {% if reg_error.PasswordConfirm %}
+                                 <label style="color: #ff0000" class="" for="form-password">{{ reg_error.PasswordConfirm }}</label>
                              {% endif %}
-                             <input type="password" name="userPasswordConfirm" placeholder="Confirmation mot de passe ..." class="{% if reg_error.userPasswordConfirm %}input-error{% endif %}" id="signup-etablissement-password-confirm">
+                             <input type="password" name="PasswordConfirm" placeholder="Confirmation mot de passe ..." class="{% if reg_error.PasswordConfirm %}input-error{% endif %}" id="signup-etablissement-password-confirm">
                          </div>
-                         <input type="hidden" name="userRole" value="2"/>
+
                          <div class="form-group 4u -4u">
                              <button type="submit" class="btn" style="background: #00CC66;">S'inscrire !</button>
                          </div>
