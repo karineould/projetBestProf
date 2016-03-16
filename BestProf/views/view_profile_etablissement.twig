@@ -1,0 +1,99 @@
+{% extends 'connexion.twig' %}
+
+
+{% block menu %}
+<header id="header" class="alt">
+    <h1 style=" font-size: 15px;"><a href="/">MyBestProf</a> by TEAM 2</h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/profil" class="button">MonProfil</a></li>
+        </ul>
+    </nav>
+</header>
+{% endblock %}
+
+{% block classContainer %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10  form-box" style="width: 100%;">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3 style="text-align : center; color :white;">
+                        {% if dataForm.etablissementFirstname and dataForm.etablissementLastname %}
+                        <p>{{ dataForm.etablissementFirstname }} {{ dataForm.etablissementLastname }}</p>
+                        <input type="hidden" name="etablissementFirstname" value="{{ dataForm.etablissementFirstname }}"/>
+                        <input type="hidden" name="etablissementLastname" value="{{ dataForm.etablissementLastname }}"/>
+                        {% endif %}
+                    </h3>
+                </div>
+
+            </div>
+            <div class="form-bottom">
+                <form role="form" action="/profile-recruteur" method="post" class="login-form">
+                    <div class="row uniform 100%">
+                        <div class="-3u 5u">
+                            <label style="color:white;">Coordonnées établissement: </label>
+                            <br>
+                            <label style="color:white;">Nom établissement :</label>
+                            {% if dataForm %}
+                            <p>{{ dataForm.etablissementName }}</p>
+                            <input type="hidden" name="etablissementName" value="{{ dataForm.etablissementName }}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Adresse établissement :</label>
+                            {% if dataForm.etablissementAddress %}
+                            <p>{{ dataForm.etablissementAddress }}</p>
+                            <input type="hidden" name="etablissementAddress" value="{{ dataForm.etablissementAddress }}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Ville :</label>
+                            {% if dataForm.etablissementVille %}
+                            <p>{{ dataForm.etablissementVille }}</p>
+                            <input type="hidden" name="etablissementVille" value="{{ dataForm.etablissementVille }}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Code Postal :</label>
+                            {% if dataForm.etablissementCp %}
+                            <p>{{ dataForm.etablissementCp }}</p>
+                            <input type="hidden" name="etablissementCp" value="{{ dataForm.etablissementCp }}"/>
+                            {% endif %}
+                            <br>
+                            <br>
+                            <br>
+                            <label style="color:white;">Informations recruteur : </label>
+                            <br>
+                            <label style="color:white;">Nom :</label>
+                            {% if dataForm.nomRecruteur %}
+                            <p>{{ dataForm.nomRecruteur }}</p>
+                            <input type="hidden" name="nomRecruteur" value="{{ dataForm.nomRecruteur }}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Prénom :</label>
+                            {% if dataForm.prenomRecruteur %}
+                            <p>{{ dataForm.prenomRecruteur}}</p>
+                            <input type="hidden" name="prenomRecruteur" value="{{dataForm.prenomRecruteur}}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Poste :</label>
+                            {% if dataForm.posteRecruteur %}
+                            <p>{{ dataForm.posteRecruteur}}</p>
+                            <input type="hidden" name="posteRecruteur" value="{{dataForm.posteRecruteur}}"/>
+                            {% endif %}
+                            <br>
+                            <label style="color:white;">Téléphone :</label>
+                            {% if dataForm.telephoneRecruteur %}
+                            <p>{{ dataForm.telephoneRecruteur}}</p>
+                            <input type="hidden" name="telephoneRecruteur" value="{{dataForm.telephoneRecruteur}}"/>
+                            {% endif %}
+                            <br>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

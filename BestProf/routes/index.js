@@ -65,4 +65,13 @@ router.post('/inscription-etablissement-done', EtablissementController.signUp, f
 router.get('/accueil', AuthController.auth ,function (req,res){
     res.render('accueil');
 });
+
+router.get('/test', /*AuthController.auth ,*/function (req,res){
+    res.render('view_profile_prof');
+});
+
+router.get('/test1',/* AuthController.auth ,*/function (req,res){
+    res.render('view_profile_etablissement');
+});
+
 module.exports = router;

@@ -1,92 +1,92 @@
 {% extends 'connexion.twig' %}
 
 
- {% block classContainer %}
-     <div class="container">
-         <div class="row">
-             <div class="col-sm-8 col-sm-offset-2 text">
-                 <h1><strong>MyBestProf</strong> - Inscription - Vous êtes un établissement </h1>
-                 <div class="description">
-                     <p>
-                         <a href="http://azmind.com"><strong></strong></a>
-                     </p>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 25%; width: 50%;">
-                 <div class="form-top">
-                     <div class="form-top-left">
-                         <h3>Merci de vérifier vos données : </h3>
-                         {#<p>Pour pouvoir vous inscrire merci de bien vouloir remplir les champs suivants :</p>#}
-                     </div>
-                     <div class="form-top-right">
-                         <i class="fa fa-user-plus"></i>
-                     </div>
-                 </div>
+{% block classContainer %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+            <h1><strong>MyBestProf</strong> - Inscription - Vous êtes un établissement </h1>
+            <div class="description">
+                <p>
+                    <a href="http://azmind.com"><strong></strong></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 25%; width: 50%;">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Merci de vérifier vos données : </h3>
+                    {#<p>Pour pouvoir vous inscrire merci de bien vouloir remplir les champs suivants :</p>#}
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-user-plus"></i>
+                </div>
+            </div>
 
-                 <div class="form-bottom">
-                     <form role="form" action="/inscription-etablissement-done" method="post" class="login-form">
-                         <div class="row uniform 50%">
-                             <div class="-1u 5u">
-                                 <label style="color:white;">Information établissement : </label>
-                                     {% if dataForm %}
-                                         <p>{{ dataForm.etablissementName }}</p>
-                                         <input type="hidden" name="etablissementName" value="{{ dataForm.etablissementName }}"/>
-                                     {% endif %}
-                                     {% if dataForm.etablissementAddress %}
-                                         <p>{{ dataForm.etablissementAddress }}</p>
-                                         <input type="hidden" name="etablissementAddress" value="{{ dataForm.etablissementAddress }}"/>
-                                     {% endif %}
-                                     {% if dataForm.etablissementVille %}
-                                         <p>{{ dataForm.etablissementVille }}</p>
-                                         <input type="hidden" name="etablissementVille" value="{{ dataForm.etablissementVille }}"/>
-                                     {% endif %}
-                                     {% if dataForm.etablissementCp %}
-                                         <p>{{ dataForm.etablissementCp }}</p>
-                                         <input type="hidden" name="etablissementCp" value="{{ dataForm.etablissementCp }}"/>
-                                     {% endif %}
-                             </div>
+            <div class="form-bottom">
+                <form role="form" action="/inscription-etablissement-done" method="post" class="login-form">
+                    <div class="row uniform 50%">
+                        <div class="-1u 5u">
+                            <label style="color:white;">Information établissement : </label>
+                            {% if dataForm %}
+                            <p>{{ dataForm.etablissementName }}</p>
+                            <input type="hidden" name="etablissementName" value="{{ dataForm.etablissementName }}"/>
+                            {% endif %}
+                            {% if dataForm.etablissementAddress %}
+                            <p>{{ dataForm.etablissementAddress }}</p>
+                            <input type="hidden" name="etablissementAddress" value="{{ dataForm.etablissementAddress }}"/>
+                            {% endif %}
+                            {% if dataForm.etablissementVille %}
+                            <p>{{ dataForm.etablissementVille }}</p>
+                            <input type="hidden" name="etablissementVille" value="{{ dataForm.etablissementVille }}"/>
+                            {% endif %}
+                            {% if dataForm.etablissementCp %}
+                            <p>{{ dataForm.etablissementCp }}</p>
+                            <input type="hidden" name="etablissementCp" value="{{ dataForm.etablissementCp }}"/>
+                            {% endif %}
+                        </div>
 
-                             <div class="-1u 5u">
-                                 <label style="color:white;">Information utilisateur : </label>
-                                     {% if dataForm.etablissementFirstname and dataForm.etablissementLastname %}
-                                         <p>{{ dataForm.etablissementFirstname }} {{ dataForm.etablissementLastname }}</p>
-                                         <input type="hidden" name="etablissementFirstname" value="{{ dataForm.etablissementFirstname }}"/>
-                                         <input type="hidden" name="etablissementLastname" value="{{ dataForm.etablissementLastname }}"/>
-                                     {% endif %}
-                                     {% if dataForm.etablissementPoste %}
-                                         <p>{{ dataForm.etablissementPoste }}</p>
-                                         <input type="hidden" name="etablissementPoste" value="{{ dataForm.etablissementPoste }}"/>
-                                     {% endif %}
-                             </div>
+                        <div class="-1u 5u">
+                            <label style="color:white;">Information utilisateur : </label>
+                            {% if dataForm.etablissementFirstname and dataForm.etablissementLastname %}
+                            <p>{{ dataForm.etablissementFirstname }} {{ dataForm.etablissementLastname }}</p>
+                            <input type="hidden" name="etablissementFirstname" value="{{ dataForm.etablissementFirstname }}"/>
+                            <input type="hidden" name="etablissementLastname" value="{{ dataForm.etablissementLastname }}"/>
+                            {% endif %}
+                            {% if dataForm.etablissementPoste %}
+                            <p>{{ dataForm.etablissementPoste }}</p>
+                            <input type="hidden" name="etablissementPoste" value="{{ dataForm.etablissementPoste }}"/>
+                            {% endif %}
+                        </div>
 
-                         </div>
+                    </div>
 
-                         <div class="-1u">
-                             <label style="color:white;">Information session : </label>
-                             {% if dataForm.userEmail %}
-                                 <p> {{ dataForm.userEmail }}</p>
-                                 <input type="hidden" name="userEmail" value="{{ dataForm.userEmail }}"/>
-                             {% endif %}
-                             {% if dataForm.userPassword %}
-                                 <p>{{ dataForm.userPassword }}</p>
-                                 <input type="hidden" name="userPassword" value="{{ dataForm.userPassword }}"/>
-                             {% endif %}
+                    <div class="-1u">
+                        <label style="color:white;">Information session : </label>
+                        {% if dataForm.userEmail %}
+                        <p> {{ dataForm.userEmail }}</p>
+                        <input type="hidden" name="userEmail" value="{{ dataForm.userEmail }}"/>
+                        {% endif %}
+                        {% if dataForm.userPassword %}
+                        <p>{{ dataForm.userPassword }}</p>
+                        <input type="hidden" name="userPassword" value="{{ dataForm.userPassword }}"/>
+                        {% endif %}
 
-                             <input type="hidden" name="userRole" value="2"/>
-                         </div>
-                         <div class="form-group 4u -4u">
-                             <button type="submit" class="btn" style="background: #00CC66;">Valider</button>
-                         </div>
-                         <div class="form-group 4u -4u">
-                             <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
-                         </div>
+                        <input type="hidden" name="userRole" value="2"/>
+                    </div>
+                    <div class="form-group 4u -4u">
+                        <button type="submit" class="btn" style="background: #00CC66;">Valider</button>
+                    </div>
+                    <div class="form-group 4u -4u">
+                        <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
+                    </div>
 
-                     </form>
+                </form>
 
-                 </div>
-             </div>
-         </div>
-     </div>
- {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
