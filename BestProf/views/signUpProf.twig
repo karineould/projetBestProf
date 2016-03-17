@@ -37,14 +37,14 @@
                                  {% if reg_error.Lastname %}
                                      <label style="color: #ff0000" class="" for="form-nom">{{ reg_error.Lastname }}</label>
                                  {% endif %}
-                                 <input type="text" name="Lastname" value="{% if dataForm.Lastname %}{{ dataForm.Lastname }}{% endif %}" placeholder="Nom ..." class="{% if reg_error.Lastname %}input-error{% endif %}" id="signup-etablissement-nom">
+                                 <input type="text" name="Lastname" value="{% if dataForm.Lastname %}{{ dataForm.Lastname|e }}{% endif %}" placeholder="Nom ..." class="{% if reg_error.Lastname %}input-error{% endif %}" id="signup-etablissement-nom">
                              </div>
 
                              <div class="form-group 6u">
                                  {% if reg_error.Firstname %}
                                      <label style="color: #ff0000" class="" for="form-prenom">{{ reg_error.Firstname }}</label>
                                  {% endif %}
-                                 <input type="text" name="Firstname" value="{% if dataForm.Firstname %}{{ dataForm.Firstname }}{% endif %}" placeholder="Prénom ..." class="{% if reg_error.Firstname %}input-error{% endif %}" id="signup-etablissement-prenom">
+                                 <input type="text" name="Firstname" value="{% if dataForm.Firstname %}{{ dataForm.Firstname|e }}{% endif %}" placeholder="Prénom ..." class="{% if reg_error.Firstname %}input-error{% endif %}" id="signup-etablissement-prenom">
                              </div>
                          </div>
 
@@ -52,14 +52,14 @@
                              {% if reg_error.Birth %}
                                  <label style="color: #ff0000" class="" for="form-birth">{{ reg_error.Birth }}</label>
                              {% endif %}
-                             <input type="text" name="Birth" value="{% if dataForm.Birth %}{{ dataForm.Birth }}{% endif %}" placeholder="Date de naissance jj/mm/aa" class="{% if reg_error.Birth %}input-error{% endif %}" id="signup-enseignant-birth">
+                             <input type="text" name="Birth" value="{% if dataForm.Birth %}{{ dataForm.Birth|e }}{% endif %}" placeholder="Date de naissance jj/mm/aa" class="{% if reg_error.Birth %}input-error{% endif %}" id="signup-enseignant-birth">
                          </div>
 
                          <div class="form-group">
                              {% if reg_error.Phone %}
                                  <label style="color: #ff0000"class="" for="form-tel">{{ reg_error.Phone }}</label>
                              {% endif %}
-                             <input type="text" name="Phone" value="{% if dataForm.Phone %}{{ dataForm.Phone }}{% endif %}" placeholder="Téléphone..." class="{% if reg_error.Phone %}input-error{% endif %}" id="signup-etablissement-phone">
+                             <input type="text" name="Phone" value="{% if dataForm.Phone %}{{ dataForm.Phone|e }}{% endif %}" placeholder="Téléphone..." class="{% if reg_error.Phone %}input-error{% endif %}" id="signup-etablissement-phone">
                          </div>
 
                          <div class="row uniform 50%">
@@ -68,14 +68,14 @@
                                  {% if reg_error.Ville %}
                                      <label style="color: #ff0000" class="" for="form-city">{{ reg_error.Ville }}</label>
                                  {% endif %}
-                                 <input type="text" name="Ville" value="{% if dataForm.Ville %}{{ dataForm.Ville }}{% endif %}" placeholder="Ville ..." class="{% if reg_error.Ville %}input-error{% endif %}" id="signup-etablissement-ville">
+                                 <input type="text" name="Ville" value="{% if dataForm.Ville %}{{ dataForm.Ville|e }}{% endif %}" placeholder="Ville ..." class="{% if reg_error.Ville %}input-error{% endif %}" id="signup-etablissement-ville">
                              </div>
 
                              <div class="form-group 6u">
                                  {% if reg_error.Cp %}
                                      <label style="color: #ff0000" class="" for="form-cp">{{ reg_error.Cp }}</label>
                                  {% endif %}
-                                 <input type="text" name="Cp" value="{% if dataForm.Cp %}{{ dataForm.Cp }}{% endif %}" placeholder="Code postale ..." class="{% if reg_error.Cp %}input-error{% endif %}" id="signup-etablissement-cp">
+                                 <input type="text" name="Cp" value="{% if dataForm.Cp %}{{ dataForm.Cp|e }}{% endif %}" placeholder="Code postale ..." class="{% if reg_error.Cp %}input-error{% endif %}" id="signup-etablissement-cp">
                              </div>
                          </div>
 
@@ -85,7 +85,7 @@
                              {% if reg_error.Email %}
                                  <label style="color: #ff0000" class="" for="form-email">{{ reg_error.Email }}</label>
                              {% endif %}
-                             <input type="text" name="Email" value="{% if dataForm.Email %}{{ dataForm.Email }}{% endif %}" placeholder="Email ..." class="{% if reg_error.Email %}input-error{% endif %}" id="signup-enseignant-email">
+                             <input type="text" name="Email" value="{% if dataForm.Email %}{{ dataForm.Email|e }}{% endif %}" placeholder="Email ..." class="{% if reg_error.Email %}input-error{% endif %}" id="signup-enseignant-email">
                          </div>
 
                          <div class="form-group 12u">
