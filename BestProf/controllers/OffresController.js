@@ -13,14 +13,14 @@ var createOffreValidate = {
         presence: true
     }
 };
-
-var experienceSelect = {
-
-    "1":"Moins d'1 an",
-    "2":"Supérieur à 2 ans",
-    "3":"Supérieur à 5 ans",
-    "4":"Supérieur à 10 ans"
-};
+//
+//var experienceSelect = {
+//
+//    "1":"Moins d'1 an",
+//    "2":"Supérieur à 2 ans",
+//    "3":"Supérieur à 5 ans",
+//    "4":"Supérieur à 10 ans"
+//};
 
 exports.checkCreate = function(req, res, next){
 
@@ -38,7 +38,7 @@ exports.checkCreate = function(req, res, next){
 
         if (req.body.TypeContrat){
 
-            var old = req.body.TypeContrat;
+            //var old = req.body.TypeContrat;
             //req.body.TypeContrat = experienceSelect.old;
             //console.log(experienceSelect);
         }
