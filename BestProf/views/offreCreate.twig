@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="/users/mes-offres-create-check" method="post" class="offre-form">
+                    <form role="form" action="/users/mes-offres-creer-check" method="post" class="offre-form">
 
                         <div class="form-group -3u 5u">
                             <label class=""  style="color : white;" for="form-title">Titre de l'offre :</label>
@@ -49,12 +49,12 @@
                                     <label style="color: #ff0000" for="offreTypeContrat">{{ reg_error.TypeContrat }}</label>
                                 {% endif %}
 
-                                <select class="form-control" name="TypeContrat">
+                                <select class="form-control" name="TypeContrat" id="offreTypeContrat">
                                     <option value="0">Séléctionnez</option>
-                                    <option value="1">CDD</option>
-                                    <option value="2">CDI</option>
-                                    <option value="3">Stage</option>
-                                    <option value="4">Interim</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="CDD">CDI</option>
+                                    <option value="Stage">Stage</option>
+                                    <option value="Interim">Interim</option>
 
                                 </select>
                             </div>
@@ -64,7 +64,7 @@
                                 {% if reg_error.offreNivexp %}
                                     <label style="color: #ff0000" for="form-Nivexp">{{ reg_error.Experience }}</label>
                                 {% endif %}
-                                <select class="form-control" name="Experience">
+                                <select class="form-control" name="Experience" id="offreExperience">
                                     <option value="0">Séléctionnez</option>
                                     <option value="1"> Moins d'1 an</option>
                                     <option value="2">Supérieur à 2 ans</option>

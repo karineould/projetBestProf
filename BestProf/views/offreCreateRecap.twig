@@ -21,10 +21,10 @@
                 </div>
 
                 <div class="form-bottom">
-                    <form role="form" action="/users/mes-offres" method="post" class="offre-form">
+                    <form role="form" action="/users/mes-offres-creer-done" method="post" class="offre-form">
 
+                        <h4 class=""  style="color : white;" {#for="form-title"#}>{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}</h4>
                         <div class="form-group -3u 5u">
-                            <label class=""  style="color : white;" for="form-title">{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}</label>
                             <input type="hidden" name="Title" value="{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}">
                         </div>
 
@@ -32,13 +32,13 @@
 
                             <div class="form-group 6u">
                                 <label style="color : white;" for="form-offre">Description de l'offre :</label>
-                                <p>{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}</p>
+                                <p style="color : white;">{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}</p>
                                 <input type="hidden" name="Description" value="{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}">
                             </div>
 
                             <div class="form-group 6u">
                                 <label style="color : white;" for="form-competence">Compétences requises :</label>
-                                <p>{% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}</p>
+                                <p style="color : white;"> {% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}</p>
                                 <input type="hidden" name="Competence" value="{% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}">
 
                             </div>
@@ -48,13 +48,13 @@
                         <div class="row uniform 100%">
                             <div class="form-group 6u"  >
                                 <label class="" style="color : white;" for="form-typeContrat">Type de contrat :</label>
-                                <p>{% if dataForm.TypeContrat %}{{ dataForm.TypeContrat }}{% endif %}</p>
+                                <p style="color : white;">{% if dataForm.TypeContrat %}{{ dataForm.TypeContrat }}{% endif %}</p>
                                 <input type="hidden" name="TypeContrat" value="{% if dataForm.TypeContrat %}{{ dataForm.TypeContrat }}{% endif %}">
                             </div>
 
                             <div class="form-group 6u" >
                                 <label class="" style="color : white;" for="form-Nivexp">Niveau d'experience :</label>
-                                <p>{% if dataForm.Experience %}{{ dataForm.Experience }}{% endif %}</p>
+                                <p style="color : white;">{% if dataForm.Experience %}{{ dataForm.Experience }}{% endif %}</p>
                                 <input type="hidden" name="Experience" value="{% if dataForm.Experience %}{{ dataForm.Experience }}{% endif %}">
                             </div>
 

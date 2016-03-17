@@ -12,10 +12,10 @@ router.get('/mes-offres-creer', function(req, res, next) {
     res.render('offreCreate', {admin: req.session.admin});
 });
 
-router.post('/mes-offres-create-check', OffreController.checkCreate, function(req, res, next) {
+router.post('/mes-offres-creer-check', OffreController.checkCreate, function(req, res, next) {
 });
 
-router.get('/mes-offres-create-done', function(req, res, next) {
+router.get('/mes-offres-creer-done', function(req, res, next) {
 
     console.log(req);
     //User.create('test','test',1);
