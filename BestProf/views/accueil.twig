@@ -10,6 +10,7 @@
 {% block menu %}
     <header id="header" class="alt">
         <nav id="nav">
+            {% if admin == 2 %}
             <ul>
                 <li><a href="/users/accueil"><strong>Accueil</strong></a></li>
                 <li><a href="/users/mes-offres"><strong>Mes offres</strong></a></li>
@@ -17,6 +18,15 @@
                 <li><a href="/users/mon-profile"><strong>Mon profil</strong></a></li>
                 <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
             </ul>
+            {% else %}
+            <ul>
+                <li><a href="/users/accueil"><strong>Accueil</strong></a></li>
+                {#<li><a href="/users/mes-offres"><strong>Mon </strong></a></li>#}
+                <li><a href="/users/offre"><strong>Nos offres</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Mon profil</strong></a></li>
+                <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
+            </ul>
+            {% endif %}
         </nav>
     </header>
 {% endblock %}
@@ -29,9 +39,10 @@
 
             <section {#id="banner"#}>
                 {% block bannerInner %}
-                <h1 style="color: #fff;">MyBestProf - Accueil</h1>
+                    {% if admin == 2 %}
+                <h1 style="color: #fff;">MyBestProf</h1>
                 <p style="color: #fff;">L'agence de recrutement spécialisée dans l'enseignement.</p>
-                <p style="color: #fff;">[TEXTE EXPLICATIVE]</p>
+                {#<p style="color: #fff;">[TEXTE EXPLICATIVE]</p>#}
 
                 <br/><br/>
 
@@ -40,11 +51,10 @@
                     <div class="row">
                         <div class="6u 12u(narrower)">
                             <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); ">
-                                {#<span class="image featured"><img src="images/etabliss.jpg" alt="" /></span>#}
-                                <h3 style="color: #fff;">Créer votre offre</h3>
-                                <p style="color: #fff;"> [ a definir avec jordy ou jean ]</p>
+                                <h3 style="color: #fff;">Créez votre offre</h3>
+                                <p style="color: #fff;">Ici, créez votre offre personnalisé: pour gagner encore plus de temps dans vos recherche, rédigez une offre précise concernant le profil que vous recherchez. Chaque candidat y aura accès afin de maximiser vos chances de trouver la personne qu'il vous faut!</p>
                                 <ul class="actions">
-                                    <li><a href="/users/mes-offres-creer" class="btn" style="background: #00CC66;">CREER</a></li>
+                                    <li><a href="/users/mes-offres-creer" class="btn" style="background: #00CC66;">CRÉER</a></li>
                                 </ul>
                             </section>
                         </div>
@@ -52,18 +62,52 @@
 
                         <div class="6u 12u(narrower)">
 
-                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff;">
-                                {#<span class="image featured"><img src="images/prof.jpg" alt="" /></span>#}
-                                <h3 style="color: #fff;">Rechercher un candidat</h3>
-                                <p style="color: #fff;"> [ a definir avec jordy ou jean ]</p>
+                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff; height: 280px;">
+                                <h3 style="color: #fff;">Trouvez un candidat</h3>
+                                <p style="color: #fff;">Accédez à la liste complête des candidats!</p>
                                 <ul class="actions">
-                                    <li><a  href="/" class="btn" style="background: #00CC66;" >RECHERCHER</a></li>
+                                    <li><a  href="/users/candidats" class="btn" style="background: #00CC66; margin-top:58px;" >RECHERCHER</a></li>
                                 </ul>
                             </section>
 
                         </div>
                     </div>
                 </div>
+                {% else %}
+                    <h1 style="color: #fff;">MyBestProf</h1>
+                    <p style="color: #fff;">L'agence de recrutement spécialisée dans l'enseignement.</p>
+                    {#<p style="color: #fff;">[TEXTE EXPLICATIVE]</p>#}
+
+                    <br/><br/>
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="6u 12u(narrower)">
+                                <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); ">
+                                    <h3 style="color: #fff;">Passer le test</h3>
+                                    <p style="color: #fff;">remplissez le test auquel accèderont ensuite les écoles en recherche d'ensaignants!</p>
+                                    <ul class="actions">
+                                        <li><a href="/users/mes-offres-creer" class="btn" style="background: #00CC66;">COMMENCEZ</a></li>
+                                    </ul>
+                                </section>
+                            </div>
+
+
+                            <div class="6u 12u(narrower)">
+
+                                <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff; height: 240px;">
+                                    <h3 style="color: #fff;">Trouvez une offre</h3>
+                                    <p style="color: #fff;">Accédez à la liste complête des offres!</p>
+                                    <ul class="actions">
+                                        <li><a  href="/users/candidats" class="btn" style="background: #00CC66; margin-top:30px;" >RECHERCHER</a></li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 {% endblock %}
             </section>
 
@@ -72,10 +116,6 @@
 
 {% endblock %}
 
-
-{#{% block content %}#}
-
-{#{% endblock %}#}
 
 {% block content %}
 {% endblock %}
@@ -86,21 +126,5 @@
 
 {% block script %}
 {% endblock %}
-{#{% block script %}#}
-    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
-
-    {#<!-- jQuery -->#}
-    {#<script src="js/jquery.js"></script>#}
-
-    {#<!-- Bootstrap Core JavaScript -->#}
-    {#<script src="js/bootstrap.min.js"></script>#}
-
-    {#<!-- Script to Activate the Carousel -->#}
-    {#<script>#}
-        {#$('.carousel').carousel({#}
-            {#interval: 5000 //changes the speed#}
-        {#})#}
-    {#</script>#}
-{#{% endblock %}#}
 
 

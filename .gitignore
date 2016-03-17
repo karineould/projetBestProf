@@ -1,2 +1,11 @@
 BestProf/node_modules
+BestProf/npm-debug.log
 .DS_Store
+
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
