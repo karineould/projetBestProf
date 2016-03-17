@@ -26,7 +26,7 @@ var connexionValidate = {
 // Authentication and Authorization Middleware
 exports.auth = function(req, res, next) {
     console.log(req.session);
-    if (req.session && req.session.user === 1)
+    if (req.session && req.session.user)
         return next();
     else
         return res.send('auth failed');
@@ -53,7 +53,7 @@ exports.signIn = function(req, res, next) {
 
     }else{
 
-        models.sers.find({
+        models.users.find({
             where: {
                 email_users: req.body.username,
                 password_users: req.body.password
@@ -61,7 +61,6 @@ exports.signIn = function(req, res, next) {
         }).then(function(result) {
 
             error = 'Email ou password introuvable !';
-            console.log(result);
             if (!result){
                 return res.render('connexion', {notFound: error});
             }else{

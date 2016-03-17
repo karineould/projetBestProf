@@ -6,10 +6,14 @@
 
 module.exports = function(sequelize, DataTypes){
     var Client = sequelize.define('clients', {
-        id_clients: {
+        id_client: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+        },
+        id_users_client: {
+            type: DataTypes.INTEGER,
+            required: true
         },
         lastName_client: {
             type: DataTypes.STRING,

@@ -1,18 +1,21 @@
 var express = require('express');
 var router = express.Router();
-//var User = require('../models/User.js');
 var AuthController = require('../controllers/AuthenticateController.js');
+var OffreController = require('../controllers/OffresController.js');
 
 /* GET users listing. */
-router.get('/', AuthController.auth, function(req, res, next) {
-
-        res.render('accueil', {admin: req.session.admin});
-
+router.get('/accueil', AuthController.auth, function(req, res, next) {
+    res.render('accueil', {admin: req.session.admin});
 });
 
+router.get('/mes-offres-creer', function(req, res, next) {
+    res.render('offreCreate', {admin: req.session.admin});
+});
 
+router.post('/mes-offres-create-check', OffreController.checkCreate, function(req, res, next) {
+});
 
-router.get('/test', function(req, res, next) {
+router.get('/mes-offres-create-done', function(req, res, next) {
 
     console.log(req);
     //User.create('test','test',1);

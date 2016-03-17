@@ -8,24 +8,24 @@ var models  = require('../models');
 var signUpValidate = {
     Name: {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
 
     },
     Address: {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
     },
     Ville : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
 
     },
     Cp : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
     },
     Firstname : {
@@ -40,37 +40,34 @@ var signUpValidate = {
     },
     Phone : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
-        //numericality: {
-        //    onlyInteger: true
-        //}
     },
     Poste : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         }
     },
     Email : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         },
         email: {
-            message: "doesn't look like a valid email"
+            message: "Entrez une adresse mail valide"
         }
     },
     Password : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         },
         length: {
             minimum: 6,
-            message: "must be at least 6 characters"
+            message: "Au moins 6 caractère"
         }
     },
     PasswordConfirm : {
         presence: {
-            message: "this field is require"
+            message: "champs requis"
         },
         equality: "Password"
     }
@@ -87,13 +84,28 @@ exports.signUpcheck = function(req,res,next){
     if (errorValidator){
 
         error = 'Erreur de saisie ! ';
-        return res.render('signUpSchool', {reg_error: errorValidator, notFound: error});
+        return res.render('signUpSchool', {reg_error: errorValidator, notFound: error, dataForm: req.body});
 
     }else {
-        var data = req.body;
-        return res.render('signUpSchoolRecap', { dataForm : data});
+
+        models.users.find({
+            where: {
+                email_users: req.body.Email
+            }
+        }).then(function(result) {
+
+            if (result){
+                errorValidator = { Email: 'Email déjà existant'};
+                return res.render('signUpSchool', {reg_error: errorValidator, notFound: error, dataForm: req.body});
+            }else{
+
+                return res.render('signUpSchoolRecap', { dataForm : req.body});
+            }
+        }).catch(function(errors) {
+            console.log(errors);
+        });
     }
-}
+};
 
 exports.signUp = function(req, res, next){
 
@@ -104,9 +116,7 @@ exports.signUp = function(req, res, next){
         role_users: 2
     };
 
-    models.users.create(newUser/*, {
-        include: [models.etablissement]
-    }*/).then(function(user){
+    models.users.create(newUser).then(function(user){
 
         var error = false;
         console.log(user.get('id_users'));
@@ -122,7 +132,7 @@ exports.signUp = function(req, res, next){
                 ville_etablissement : req.body.Ville,
                 cp_etablissement : req.body.Cp,
                 phone_etablissement : req.body.Phone
-            }
+            };
 
             models.etablissement.create(newEtablissement).then(function(etablissement){
 
@@ -139,4 +149,4 @@ exports.signUp = function(req, res, next){
         res.render('signUpDone', { errorDb: error});
     });
 
-}
+};

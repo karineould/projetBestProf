@@ -39,15 +39,6 @@ var signUpValidate = {
         presence: {
             message: "champs requis"
         }
-        //numericality: {
-        //    onlyInteger: true
-        //}
-    },
-    Quelposte :{
-        exclusion: {
-            within: {"0":""},
-            message: "champs requis"
-        }
     },
     Email : {
         presence: {
@@ -85,38 +76,53 @@ exports.signUpcheck = function(req,res,next){
     if (errorValidator){
 
         error = 'Erreur de saisie ! ';
-        return res.render('signUpProf', {reg_error: errorValidator, notFound: error});
+        return res.render('signUpProf', {reg_error: errorValidator, notFound: error,  dataForm: req.body});
 
     }else {
-        var data = req.body;
-        return res.render('signUpProfRecap', { dataForm : data});
+
+        models.users.find({
+            where: {
+                email_users: req.body.Email
+            }
+        }).then(function(result) {
+
+            if (result){
+
+                errorValidator = { Email: 'Email déjà existant'};
+                return res.render('signUpProf', {reg_error: errorValidator, notFound: error, dataForm: req.body});
+            }else{
+
+                return res.render('signUpProfRecap', { dataForm : req.body});
+            }
+        }).catch(function(errors) {
+            console.log(errors);
+        });
     }
-}
+};
 
 exports.signUp = function(req, res, next){
-
 
     var newUser = {
         email_users: req.body.Email,
         password_users: req.body.Password,
         role_users: 1
-    }
+    };
 
     models.users.create(newUser).then(function(user){
 
         var error = false;
 
         if (user.get('id_users')){
-
+            console.log(req.body.Birth);
             var newClient = {
-                id_users_client : user.get('id_users'),
+                id_users_client : parseInt(user.get('id_users')),
                 lastName_client: req.body.Lastname,
                 firstName_client: req.body.Firstname,
                 birthday_client: req.body.Birth,
                 ville_client: req.body.Ville,
                 cp_client: req.body.Cp,
                 telephone_client: req.body.Phone
-            }
+            };
 
             models.clients.create(newClient).then(function(client){
 

@@ -37,7 +37,7 @@
                                  {% endif %}
                                  {% if dataForm.Birth %}
                                      <p style="color:white;">{{ dataForm.Birth }}</p>
-                                     <input type="hidden" name="Address" value="{{ dataForm.Birth }}"/>
+                                     <input type="hidden" name="Birth" value="{{ dataForm.Birth }}"/>
                                  {% endif %}
                                  {% if dataForm.Address %}
                                      <p style="color:white;">{{ dataForm.Address }}</p>
@@ -55,10 +55,6 @@
                                      <p style="color:white;">{{ dataForm.Phone }}</p>
                                      <input type="hidden" name="Phone" value="{{ dataForm.Phone }}"/>
                                  {% endif %}
-                                 {% if dataForm.Quelposte %}
-                                     <p style="color:white;">{{ dataForm.Quelposte }}</p>
-                                     <input type="hidden" name="Quelposte" value="{{ dataForm.Quelposte }}"/>
-                                 {% endif %}
                              </div>
 
                              <div class="5u">
@@ -75,6 +71,7 @@
 
                          </div>
 
+                            {#TODO action modifier#}
                          <div class="row uniform 50%">
                              <div class="form-group -1u 5u">
                                  <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
