@@ -36,7 +36,7 @@
 
                             <div class="form-group 6u">
                                 <label style="color : white;" for="form-competence">Compétences requises :</label>
-                                <textarea name="Competence"  id="offre-competence" rows="5" placeholder="Compétences requises ?"></textarea>
+                                <textarea name="Competence"  id="offre-competence" value="{% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}" rows="5" placeholder="Compétences requises ?" class="{% if reg_error.Competence %}input-error{% endif %}"></textarea>
 
                             </div>
 
@@ -45,11 +45,8 @@
                         <div class="row uniform 100%">
                             <div class="form-group 6u"  >
                                 <label class="" style="color : white;" for="form-typeContrat">Type de contrat :</label>
-                                {% if reg_error.TypeContrat %}
-                                    <label style="color: #ff0000" for="offreTypeContrat">{{ reg_error.TypeContrat }}</label>
-                                {% endif %}
 
-                                <select class="form-control" name="TypeContrat" id="offreTypeContrat">
+                                <select class="form-control {% if reg_error.TypeContrat %}input-error{% endif %}" name="TypeContrat" id="offreTypeContrat">
                                     <option value="0">Séléctionnez</option>
                                     <option value="CDD">CDD</option>
                                     <option value="CDD">CDI</option>
@@ -61,16 +58,12 @@
 
                             <div class="form-group 6u" >
                                 <label class="" style="color : white;" for="form-Nivexp">Niveau d'experience :</label>
-                                {% if reg_error.offreNivexp %}
-                                    <label style="color: #ff0000" for="form-Nivexp">{{ reg_error.Experience }}</label>
-                                {% endif %}
-                                <select class="form-control" name="Experience" id="offreExperience">
+                                <select class="form-control {% if reg_error.Experience %}input-error{% endif %}" name="Experience" id="offreExperience">
                                     <option value="0">Séléctionnez</option>
-                                    <option value="1"> Moins d'1 an</option>
-                                    <option value="2">Supérieur à 2 ans</option>
-                                    <option value="3">Supérieur à 5 ans</option>
-                                    <option value="4">Supérieur à 10 ans </option>
-
+                                    <option value="Moins d'1 an"> Moins d'1 an</option>
+                                    <option value="Supérieur à 2 ans">Supérieur à 2 ans</option>
+                                    <option value="Supérieur à 2 ans">Supérieur à 5 ans</option>
+                                    <option value="Supérieur à 10 ans">Supérieur à 10 ans </option>
                                 </select>
                             </div>
 

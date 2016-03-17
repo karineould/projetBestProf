@@ -23,8 +23,8 @@
                 <div class="form-bottom">
                     <form role="form" action="/users/mes-offres-creer-done" method="post" class="offre-form">
 
-                        <h4 class=""  style="color : white;" {#for="form-title"#}>{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}</h4>
                         <div class="form-group -3u 5u">
+                            <h4 class=""  style="color : white; text-align: center;">{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}</h4>
                             <input type="hidden" name="Title" value="{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}">
                         </div>
 
@@ -32,13 +32,13 @@
 
                             <div class="form-group 6u">
                                 <label style="color : white;" for="form-offre">Description de l'offre :</label>
-                                <p style="color : white;">{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}</p>
+                                <p style="color : white; word-wrap: break-word;">{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}</p>
                                 <input type="hidden" name="Description" value="{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}">
                             </div>
 
                             <div class="form-group 6u">
-                                <label style="color : white;" for="form-competence">Compétences requises :</label>
-                                <p style="color : white;"> {% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}</p>
+                                <label style="color : white; " for="form-competence">Compétences requises :</label>
+                                <p style="color : white; word-wrap: break-word;"> {% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}</p>
                                 <input type="hidden" name="Competence" value="{% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}">
 
                             </div>
