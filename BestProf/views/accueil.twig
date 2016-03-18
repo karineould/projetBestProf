@@ -1,96 +1,129 @@
 {% extends "index.twig" %}
 
 {% block head %}
-        <meta charset="utf-8">
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/half-slider.css" rel="stylesheet">
-        <title>MyBestProf</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/half-slider.css" rel="stylesheet">
 {% endblock %}
 
 {% block menu %}
-    <nav id="nav">
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Test</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#" class="button">Inscription</a></li>
-        </ul>
-    </nav>
-    <form>
-        <div class="row uniform 50%">
-            <div class="8u 12u(mobilep)">
-                <input type="searchWho" name="searchWho" id="searchWho" placeholder="Qui ? " />
-            </div>
-            <div class="8u 12u(mobilep)">
-                <input type="searchWhere" name="searchWhere" id="searchWhere" placeholder="Ou ? " />
-            </div>
-            <div class="4u 12u(mobilep)">
-                <input type="submit" value="Rechercher" class="fit" />
-            </div>
-        </div>
-    </form>
-
+    <header id="header" class="alt">
+        <nav id="nav">
+            {% if admin == 2 %}
+            <ul>
+                <li><a href="/users/accueil"><strong>Accueil</strong></a></li>
+                <li><a href="/users/mes-offres"><strong>Mes offres</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Candidats</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Mon profil</strong></a></li>
+                <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li><a href="/users/accueil"><strong>Accueil</strong></a></li>
+                {#<li><a href="/users/mes-offres"><strong>Mon </strong></a></li>#}
+                <li><a href="/users/offre"><strong>Nos offres</strong></a></li>
+                <li><a href="/users/mon-profile"><strong>Mon profil</strong></a></li>
+                <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
+            </ul>
+            {% endif %}
+        </nav>
+    </header>
 {% endblock %}
 
 {% block banner %}
-{% endblock %}
 
-{% block content %}
-    <div id="content">
-        <!-- Carousel -->
-       <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+    <div class="top-content">
 
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/s1.png');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+        <div class="inner-bg">
+
+            <section {#id="banner"#}>
+                {% block bannerInner %}
+                    {% if admin == 2 %}
+                <h1 style="color: #fff;">MyBestProf</h1>
+                <p style="color: #fff;">L'agence de recrutement spécialisée dans l'enseignement.</p>
+                {#<p style="color: #fff;">[TEXTE EXPLICATIVE]</p>#}
+
+                <br/><br/>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="6u 12u(narrower)">
+                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); ">
+                                <h3 style="color: #fff;">Créez votre offre</h3>
+                                <p style="color: #fff;">Ici, créez votre offre personnalisé: pour gagner encore plus de temps dans vos recherche, rédigez une offre précise concernant le profil que vous recherchez. Chaque candidat y aura accès afin de maximiser vos chances de trouver la personne qu'il vous faut!</p>
+                                <ul class="actions">
+                                    <li><a href="/users/mes-offres-creer" class="btn" style="background: #00CC66;">CRÉER</a></li>
+                                </ul>
+                            </section>
+                        </div>
+
+                        <div class="6u 12u(narrower)">
+
+                            <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff; height: 280px;">
+                                <h3 style="color: #fff;">Trouvez un candidat</h3>
+                                <p style="color: #fff;">Accédez à la liste complête des candidats!</p>
+                                <ul class="actions">
+                                    <li><a  href="/users/candidats" class="btn" style="background: #00CC66; margin-top:58px;" >RECHERCHER</a></li>
+                                </ul>
+                            </section>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
+                {% else %}
+                    <h1 style="color: #fff;">MyBestProf</h1>
+                    <p style="color: #fff;">L'agence de recrutement spécialisée dans l'enseignement.</p>
+                    {#<p style="color: #fff;">[TEXTE EXPLICATIVE]</p>#}
+
+                    <br/><br/>
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="6u 12u(narrower)">
+                                <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); ">
+                                    <h3 style="color: #fff;">Passer le test</h3>
+                                    <p style="color: #fff;">remplissez le test auquel accèderont ensuite les écoles en recherche d'ensaignants!</p>
+                                    <ul class="actions">
+                                        <li><a href="/users/mes-offres-creer" class="btn" style="background: #00CC66;">COMMENCEZ</a></li>
+                                    </ul>
+                                </section>
+                            </div>
+
+
+                            <div class="6u 12u(narrower)">
+
+                                <section class="box special" style="box-shadow: none; background: rgba(0, 0, 0, 0.4); color: #fff; height: 240px;">
+                                    <h3 style="color: #fff;">Trouvez une offre</h3>
+                                    <p style="color: #fff;">Accédez à la liste complête des offres!</p>
+                                    <ul class="actions">
+                                        <li><a  href="/users/candidats" class="btn" style="background: #00CC66; margin-top:30px;" >RECHERCHER</a></li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endblock %}
+            </section>
+
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </header>
-    <!-- Fin Carousel -->
     </div>
 
 {% endblock %}
 
-{% block sousContent %}
 
+{% block content %}
+{% endblock %}
+
+{% block sousContent %}
 {% endblock %}
 
 
-
-
+{% block script %}
+{% endblock %}
 
 

@@ -5,27 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Page de connexion </title>
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assetsConnexion/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assetsConnexion/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assetsConnexion/css/form-elements.css">
-        <link rel="stylesheet" href="assetsConnexion/css/style.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assetsConnexion/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assetsConnexion/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assetsConnexion/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assetsConnexion/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assetsConnexion/ico/apple-touch-icon-57-precomposed.png">
 {% endblock %}
 
 
@@ -35,16 +14,11 @@
         <div class="top-content">
         	
             <div class="inner-bg">
+                {% block classContainer %}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <section id="titleConnexion"> <h2><strong>MyBestProf</strong> - Connexion </h2></section>
-                            {#<div class="description">#}
-                            	{#<p>#}
-	                            	{#This is a free responsive login form made with Bootstrap. #}
-	                            	{#Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!#}
-                            	{#</p>#}
-                            {#</div>#}
                         </div>
                     </div>
                     <div class="row">
@@ -52,30 +26,39 @@
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>Connexion à votre compte</h3>
-                            		<p>Entrer votre email et votre mot de passe </p>
+                            		<p>Entrer votre email et votre mot de passe</p>
+                                    {% if notFound %}
+                                        <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
+                                    {% endif %}
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-lock"></i>
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="/login" method="post" class="login-form">
+			                    <form role="form" action="/login" method="post" class="">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="username">Email</label>
-			                        	<input type="text" name="username" placeholder="Email ..." class="form-username form-control" id="form-username">
+                                        {% if reg_error.username %}
+                                            <label style="color: #ff0000" for="username">{{ reg_error.username }}</label>
+                                        {% endif %}
+			                        	<input type="text" name="username" placeholder="Email ..." class="form-username {% if reg_error.username %}input-error{% endif %}" id="form-username">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="password">Mot de passe </label>
-			                        	<input type="password" name="password" placeholder="Mot de passe ..." class="form-password form-control" id="form-password">
+                                        {% if reg_error.password %}
+                                            <label style="color: #ff0000" for="username">{{ reg_error.password }}</label>
+                                        {% endif %}
+			                        	<input type="password" name="password" placeholder="Mot de passe ..." class="form-password {% if reg_error.password %}input-error{% endif %}" id="form-password">
 			                        </div>
-                                    {#<a href="#" class="button special fit">Connexion !</a>#}
                                     <button type="submit" class="btn">Connexion !</button>
 			                    </form>
 		                    </div>
                         </div>
                     </div>
-                    
+
                 </div>
+                {% endblock %}
             </div>
             
         </div>
@@ -89,13 +72,4 @@
 
 
 {% block script %}
-        <!-- Javascript -->
-        <script src="assetsConnexion/js/jquery-1.11.1.min.js"></script>
-        <script src="assetsConnexion/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assetsConnexion/js/jquery.backstretch.min.js"></script>
-        <script src="assetsConnexion/js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="assetsConnexion/js/placeholder.js"></script>
-        <![endif]-->
 {% endblock %}

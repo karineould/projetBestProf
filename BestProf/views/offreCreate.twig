@@ -1,0 +1,88 @@
+{% extends 'accueil.twig' %}
+
+{% block bannerInner %}
+    <h1 style="color: #fff;">MyBestProf - Mes offres</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 form-box">
+
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Créer votre  Offre</h3>
+
+                        {% if notFound %}
+                            <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="form-top-right">
+                        <i class="fa fa-folder"></i>
+                    </div>
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="/users/mes-offres-creer-check" method="post" class="offre-form">
+
+                        <div class="form-group -3u 5u">
+                            <label class=""  style="color : white;" for="form-title">Titre de l'offre :</label>
+                            <input type="text" name="Title" placeholder="Titre de l'offre..." value="{% if dataForm.Title %}{{ dataForm.Title }}{% endif %}" class="form-title {% if reg_error.Title %}input-error{% endif %}" id="form-username">
+                        </div>
+
+                        <div class="row uniform 100%">
+
+                            <div class="form-group 6u">
+                                <label style="color : white;" for="form-offre">Description de l'offre :</label>
+                                <textarea name="Description" id="offre-description" rows="5" value="{% if dataForm.Description %}{{ dataForm.Description }}{% endif %}" class="{% if reg_error.Description %}input-error{% endif %}" placeholder="Déscriptif de l'offre"></textarea>
+                            </div>
+
+                            <div class="form-group 6u">
+                                <label style="color : white;" for="form-competence">Compétences requises :</label>
+                                <textarea name="Competence"  id="offre-competence" value="{% if dataForm.Competence %}{{ dataForm.Competence }}{% endif %}" rows="5" placeholder="Compétences requises ?" class="{% if reg_error.Competence %}input-error{% endif %}"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row uniform 100%">
+                            <div class="form-group 6u"  >
+                                <label class="" style="color : white;" for="form-typeContrat">Type de contrat :</label>
+
+                                <select class="form-control {% if reg_error.TypeContrat %}input-error{% endif %}" name="TypeContrat" id="offreTypeContrat">
+                                    <option value="0">Séléctionnez</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="CDD">CDI</option>
+                                    <option value="Stage">Stage</option>
+                                    <option value="Interim">Interim</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group 6u" >
+                                <label class="" style="color : white;" for="form-Nivexp">Niveau d'experience :</label>
+                                <select class="form-control {% if reg_error.Experience %}input-error{% endif %}" name="Experience" id="offreExperience">
+                                    <option value="0">Séléctionnez</option>
+                                    <option value="Moins d'1 an"> Moins d'1 an</option>
+                                    <option value="Supérieur à 2 ans">Supérieur à 2 ans</option>
+                                    <option value="Supérieur à 2 ans">Supérieur à 5 ans</option>
+                                    <option value="Supérieur à 10 ans">Supérieur à 10 ans </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <br/>
+                        {#<div class="form-group -4u 4u">#}
+                        {#<button type="submit" class="btn" style="background: #00CC66;"><a href="/formulaire_etablissement">Rédiger un formulaire</a></button>#}
+                        {#</div>#}
+
+                        <div class="form-group -4u 4u">
+                            <button type="submit" class="btn" style="background: #00CC66;">Poster l'offre</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

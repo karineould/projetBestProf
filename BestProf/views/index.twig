@@ -4,9 +4,30 @@
     <title>MyBestProf</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="/assetsConnexion/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assetsConnexion/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assetsConnexion/css/form-elements.css">
+    <link rel="stylesheet" href="/assetsConnexion/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="/assetsConnexion/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assetsConnexion/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assetsConnexion/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assetsConnexion/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/assetsConnexion/ico/apple-touch-icon-57-precomposed.png">
     {% block head %}
     {% endblock %}
 </head>
@@ -18,119 +39,91 @@
 
     <!-- Header -->
     {% block menu %}
-    <header id="header" class="alt">
-        <h1 style=" font-size: 15px;"><a href="/">MyBestProf</a> by TEAM 2</h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/inscription" class="button">Inscription</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header id="header" class="alt">
+            <nav id="nav">
+                <ul>
+                    <li><a href="/"><strong>Accueil</strong></a></li>
+                    <li><a href="/inscription" class="button"><strong>Inscription</strong></a></li>
+                    <li><a href="/connexion" class="button"><strong>Connexion</strong></a></li>
+                </ul>
+            </nav>
+        </header>
     {% endblock %}
 
     {% block banner %}
-    <!-- Banner -->
-    <section id="banner">
-        <h2>MyBestProf</h2>
-        <p>L'agence de recrutement spécialisée dans l'enseignement.</p>
-        <ul class="actions">
-            <li><a href="/inscription" class="button special">Inscription</a></li>
-            <li><a href="/connexion" class="button">Connexion</a></li>
-        </ul>
-    </section>
+        <!-- Banner -->
+        <section id="banner">
+            <h2><strong>MyBestProf</strong></h2>
+            <p>L'agence de recrutement spécialisée dans l'enseignement.</p>
+            <ul class="actions">
+                <li><a href="/inscription" class="button special">Inscription</a></li>
+                <li><a href="/connexion" class="button">Connexion</a></li>
+            </ul>
+        </section>
     {% endblock %}
 
-
+{% block mainContainer %}
     <!-- Main -->
     <section id="main" class="container">
         {% block content %}
-        <section class="box special">
-            <header class="major">
-                <h2>En toute tranquillité,
-                    <br />
-                    MyBestProf vous donne l'accès à un enseignement de qualité</h2>
-                <p>Des tests sur mesure,<br />
-                   une selection adaptée à vos besoin.
-                    Afin de bénéficiez des profs les plus compétents dans leur domaine.</p>
-            </header>
-            <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-        </section>
+            <section class="box special" >
+                <header class="major">
+                    <h2>En toute tranquillité,
+                        <br />
+                        MyBestProf vous donne l'accès à un enseignement de qualité</h2>
+                    <p>Des tests sur mesure,<br />
+                        une selection adaptée à vos besoin.
+                        Afin de bénéficiez des profs les plus compétents dans leur domaine.</p>
+                </header>
+                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+            </section>
 
-        <section class="box special features">
-            <div class="features-row">
-                <section>
-                    <span class="icon major fa-bolt accent2"></span>
-                    <h3>Nos tests prof</h3>
-                    <p>Découvrez les tests les plus adaptés pour un enseignement de qualité.</p>
-                    <p></p>
-                </section>
-                <section>
-                    <span class="icon major fa-area-chart accent3"></span>
-                    <h3>Notre expertise</h3>
-                    <p>Des compétences reconnus par des experts de l'enseignement.</p>
-                </section>
-            </div>
-            <div class="features-row">
-                <section>
-                    <span class="icon major fa-cloud accent4"></span>
-                    <h3>Notre engagement</h3>
-                    <p>MyBestProf vous accompagne dans votre recherche de poste</p>
-                </section>
-                <section>
-                    <span class="icon major fa-lock accent5"></span>
-                    <h3>A propos</h3>
-                    <p>L'agence numéro 1, spécialisée dans le recrutement d'enseignants.</p>
-                </section>
-            </div>
-        </section>
+            <section class="box special features">
+                <div class="features-row">
+                    <section>
+                        <span class="icon major fa-bolt accent2"></span>
+                        <h3>Nos tests prof</h3>
+                        <p>Découvrez les tests les plus adaptés pour un enseignement de qualité.</p>
+                        <p></p>
+                    </section>
+                    <section>
+                        <span class="icon major fa-area-chart accent3"></span>
+                        <h3>Notre expertise</h3>
+                        <p>Des compétences reconnus par des experts de l'enseignement.</p>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+                        <span class="icon major fa-cloud accent4"></span>
+                        <h3>Notre engagement</h3>
+                        <p>MyBestProf vous accompagne dans votre recherche de poste</p>
+                    </section>
+                    <section>
+                        <span class="icon major fa-lock accent5"></span>
+                        <h3>A propos</h3>
+                        <p>L'agence numéro 1, spécialisée dans le recrutement d'enseignants.</p>
+                    </section>
+                </div>
+            </section>
         {% endblock %}
 
         {% block sousContent %}
-        <div class="row">
-            <div class="6u 12u(narrower)">
-
-                <section class="box special">
-                    <span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-                    <h3>Sed lorem adipiscing</h3>
-                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
-                    </ul>
-                </section>
-
-            </div>
-            <div class="6u 12u(narrower)">
-
-                <section class="box special">
-                    <span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-                    <h3>Accumsan integer</h3>
-                    <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
-                    </ul>
-                </section>
-
-            </div>
-        </div>
         {% endblock %}
 
     </section>
+{% endblock %}
 
     <!-- Footer -->
     <footer id="footer">
         {% block footer %}
-        <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-        </ul>
-        <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
         {% endblock %}
     </footer>
 
@@ -138,13 +131,22 @@
 
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrollgress.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.dropotron.min.js"></script>
+<script src="/assets/js/jquery.scrollgress.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
+<!-- Javascript -->
+<script src="/assetsConnexion/js/jquery-1.11.1.min.js"></script>
+<script src="/assetsConnexion/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assetsConnexion/js/jquery.backstretch.min.js"></script>
+<script src="/assetsConnexion/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="/assetsConnexion/js/placeholder.js"></script>
+<![endif]-->
 {% block script %}
 {% endblock %}
 </body>
