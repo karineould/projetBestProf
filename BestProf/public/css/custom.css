@@ -1,0 +1,124 @@
+.p{
+    color : #fff;
+}
+
+.h1{ 
+    color : #fff;
+}
+
+.h3{ 
+    color : #000000;
+}
+
+.h4{
+    color : #fff;
+    text-align : center;
+}
+
+th{
+    color : white;
+}
+
+.legend{
+    border-bottom: 1 px solid block; border-color: black;
+}
+
+.align{
+    text-align:center
+}
+
+.white{
+    color: #fff;
+}
+
+
+.red{
+    color: #ff0000;
+}
+
+.greenb{
+    background: #00CC66;
+}
+
+.orange{
+    background: #cc521a;
+}
+
+.orangec{
+    color: #cc521a;
+}
+
+.fond_box{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.fond_box3{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.custom_white{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.4);
+    color : #fff;
+}
+
+.custom_white3{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.3);
+    color : #fff;
+}
+
+.candidat{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    height: 280px;
+}
+
+.recherche_offre{
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    height: 240px;
+}
+
+.bouton_recherche{
+    background: #00CC66;
+    margin-top: 58%;
+}
+
+.bouton_recherche2{
+    background: #00CC66;
+    margin-top: 30%;
+}
+
+.fail{
+    background: #ff0000;
+    font-weight : bold;
+}
+
+.error{
+    background: #ff0000;
+    margin-top: 58%;
+}
+
+.wrap{
+    word-wrap: break-word;
+}
+
+.ml10w85{
+    margin-left : 10;
+    width : 85%;
+}
+
+.ml16w85{
+    margin-left : 16%;
+    width : 85%;
+}
+
+.ml25w50{
+    margin-left: 25%;
+    width: 50;
+}
