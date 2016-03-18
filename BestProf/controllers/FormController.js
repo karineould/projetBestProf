@@ -12,6 +12,12 @@ var createFormValidate = {
     etude_form: {
         presence: true
     },
+    motivation_form:{
+        presence: true
+    },
+    competence_form: {
+        presence: true
+    },
     already_work_form: {
         presence: true
     },

@@ -18,7 +18,6 @@ router.get('/mon-form-creer', AuthController.auth, function(req, res, next) {
     res.render('formProfCreate', {admin: req.session.admin});
 });
 
-
 router.post('/mon-form-creer-check', AuthController.auth, FormController.checkForm,function(req, res, next) {
 });
 

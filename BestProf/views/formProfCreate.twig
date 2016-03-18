@@ -59,11 +59,25 @@
                             <input type="text" name="formation_time_form" placeholder="Ex: 6 mois" value="{% if dataForm.formation_time_form %}{{ dataForm.formation_time_form|e }}{% endif %}" class="form-formation" id="form-formationTime">
                         </div>
 
-                        {#<legend></legend>#}
+                        <legend></legend>
 
+                        <div class="row uniform 100%">
+                            <div class="form-group 6u"  >
+                                <label class=""  style="color : white;" for="form-motivation">Vos motivations :</label>
+                                <textarea name="motivation_form"  rows="5" placeholder="Veuillez indiquez vos motivations..." class="{% if reg_error.motivation_form %}input-error{% endif %}">{% if dataForm.motivation_form %}{{ dataForm.motivation_form|e }}{% endif %}</textarea>
+                            </div>
+
+
+                            <div class="form-group 6u"  >
+                                <label class=""  style="color : white;" for="form-competence">Vos compétences :</label>
+                                <textarea name="competence_form"  rows="5" placeholder="Veuillez indiquez vos compétence..." class="{% if reg_error.competence_form %}input-error{% endif %}">{% if dataForm.competence_form %}{{ dataForm.competence_form|e }}{% endif %}</textarea>
+                            </div>
+
+
+                        </div>
                         {#<div class="form-group 5u">#}
-                            {#<label class=""  style="color : white;" for="form-formation">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, diplômes…) :</label>#}
-                            {#<input type="text" name="formation_form" placeholder="Ex: oui | non" value="{% if dataForm.formation_form %}{{ dataForm.formation_form|e }}{% endif %}" class="form-formation {% if reg_error.formation_form %}input-error{% endif %}" id="form-formation">#}
+                        {#<label class=""  style="color : white;" for="form-formation">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, diplômes…) :</label>#}
+                        {#<input type="text" name="formation_form" placeholder="Ex: oui | non" value="{% if dataForm.formation_form %}{{ dataForm.formation_form|e }}{% endif %}" class="form-formation {% if reg_error.formation_form %}input-error{% endif %}" id="form-formation">#}
                         {#</div>#}
 
                         <br/>
@@ -86,26 +100,26 @@
 
 
 
-                        {#<legend></legend>#}
+    {#<legend></legend>#}
 
 
 
-                        {#<div class="form-group">#}
-                            {#<label class="col-md-4 control-label" for="filebutton"><p style="color:white">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, vidéo de présentation, diplômes…)</p></label>#}
-                            {#<div class="col-md-4">#}
-                                {#<input id="filebutton" name="filebutton" class="input-file" type="file">#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<legend></legend>#}
-                    {#</fieldset>#}
-                {#</form>#}
-                {#<div style="text-align:center">#}
-                    {#<button type="button" class="btn btn-success">Valider</button>#}
-                {#</div>#}
-            {#</div>       #}
+    {#<div class="form-group">#}
+    {#<label class="col-md-4 control-label" for="filebutton"><p style="color:white">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, vidéo de présentation, diplômes…)</p></label>#}
+    {#<div class="col-md-4">#}
+    {#<input id="filebutton" name="filebutton" class="input-file" type="file">#}
+    {#</div>#}
+    {#</div>#}
+    {#<legend></legend>#}
+    {#</fieldset>#}
+    {#</form>#}
+    {#<div style="text-align:center">#}
+    {#<button type="button" class="btn btn-success">Valider</button>#}
+    {#</div>#}
+    {#</div>       #}
 
-        {#</div>#}
+    {#</div>#}
     {#</div>#}
 
-{#</div>#}
+    {#</div>#}
 {% endblock %}

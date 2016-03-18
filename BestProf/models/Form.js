@@ -34,6 +34,12 @@ module.exports = function(sequelize, DataTypes){
         formation_time_form :{
             type : DataTypes.STRING
         },
+        motivation_form : {
+            type : DataTypes.STRING
+        },
+        competence_form :{
+            type : DataTypes.STRING
+        },
         is_custom_form: {
             type : DataTypes.INTEGER
         }
