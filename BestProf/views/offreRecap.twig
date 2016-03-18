@@ -1,0 +1,92 @@
+{% extends 'accueil.twig' %}
+
+{% block bannerInner %}
+
+
+    <h1 style="color: #fff;">MyBestProf - Mes offres</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 form-box">
+
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Validez votre  Offre : </h3>
+                    </div>
+
+                    <div class="form-top-right">
+                        <i class="fa fa-folder"></i>
+                    </div>
+
+                </div>
+
+                <div class="form-bottom">
+
+                    <form role="form" action="{% if dataForm.id_offre %}/etablissements/mes-offres-update{% else %}/etablissements/mes-offres-creer-done{% endif %}" method="post" class="offre-form">
+
+                            <div class="form-group -3u 5u">
+                                <h4 class=""  style="color : white; text-align: center;">{% if dataForm.title_offre %}{{ dataForm.title_offre }}{% endif %}</h4>
+                                <input type="hidden" name="title_offre" value="{% if dataForm.title_offre %}{{ dataForm.title_offre }}{% endif %}">
+                            </div>
+
+                            <div class="row uniform 100%">
+
+                                <div class="form-group 6u">
+                                    <label style="color : white;" for="form-offre">Description de l'offre :</label>
+                                    <p style="color : white; word-wrap: break-word;">{% if dataForm.description_offre %}{{ dataForm.description_offre }}{% endif %}</p>
+                                    <input type="hidden" name="description_offre" value="{% if dataForm.description_offre %}{{ dataForm.description_offre }}{% endif %}">
+                                </div>
+
+                                <div class="form-group 6u">
+                                    <label style="color : white; " for="form-competence">Compétences requises :</label>
+                                    <p style="color : white; word-wrap: break-word;"> {% if dataForm.competence_offre %}{{ dataForm.competence_offre }}{% endif %}</p>
+                                    <input type="hidden" name="competence_offre" value="{% if dataForm.competence_offre %}{{ dataForm.competence_offre }}{% endif %}">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row uniform 100%">
+                                <div class="form-group 6u"  >
+                                    <label class="" style="color : white;" for="form-typeContrat">Type de contrat :</label>
+                                    <p style="color : white;">{% if dataForm.contrat_offre %}{{ dataForm.contrat_offre }}{% endif %}</p>
+                                    <input type="hidden" name="contrat_offre" value="{% if dataForm.contrat_offre %}{{ dataForm.contrat_offre }}{% endif %}">
+                                </div>
+
+                                <div class="form-group 6u" >
+                                    <label class="" style="color : white;" for="form-Nivexp">Niveau d'experience :</label>
+                                    <p style="color : white;">{% if dataForm.experience_offre %}{{ dataForm.experience_offre }}{% endif %}</p>
+                                    <input type="hidden" name="experience_offre" value="{% if dataForm.experience_offre %}{{ dataForm.experience_offre }}{% endif %}">
+                                </div>
+
+                            </div>
+
+                            <br/>
+                            {% if dataForm.id_offre %}
+                                <input type="hidden" name="id_offre" value="{{ dataForm.id_offre }}">
+                            {% endif %}
+
+                            {#TODO action modifier#}
+                            <div class="row uniform 50%">
+                                {% if not dataForm.id_offre %}
+                                    <div class="form-group -1u 5u">
+                                        <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
+                                    </div>
+                                    <div class="form-group 5u">
+                                        <button type="submit" class="btn" style="background: #00CC66;">Valider l'offre</button>
+                                    </div>
+                                {% else %}
+                                    <div class="form-group -4u 4u">
+                                        <button type="submit" class="btn" style="background: #00CC66;">Modifier l'offre</button>
+                                    </div>
+                                {% endif %}
+
+
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -9,7 +9,7 @@
 
                 <div class="form-top">
                     <div class="form-top-left">
-                        <h3>Créer votre  Offre</h3>
+                        <h3>Modifier votre  Offre</h3>
 
                         {% if notFound %}
                             <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
@@ -21,11 +21,13 @@
                 </div>
                 <div class="form-bottom">
 
-                    <form role="form" action="/etablissements/mes-offres-creer-check" method="post" class="offre-form">
+                    <form role="form" action="/etablissements/mes-offres-update-check" method="post" class="offre-form">
 
                         <div class="form-group -3u 5u">
                             <label class=""  style="color : white;" for="form-title">Titre de l'offre :</label>
-                            <input type="text" name="title_offre" placeholder="Titre de l'offre..." value="{% if dataForm.title_offre %}{{ dataForm.title_offre|e }}{% endif %}" class="form-title {% if reg_error.title_offre %}input-error{% endif %}" id="form-username">
+                            <input type="text" name="title_offre" placeholder="Titre de l'offre..."
+                                   value="{% if dataForm.title_offre %}{{ dataForm.title_offre|e }}{% endif %}"
+                                   class="form-title {% if reg_error.title_offre %}input-error{% endif %}" id="form-username">
                         </div>
 
                         <div class="row uniform 100%">
@@ -74,9 +76,10 @@
                         {#<div class="form-group -4u 4u">#}
                         {#<button type="submit" class="btn" style="background: #00CC66;"><a href="/formulaire_etablissement">Rédiger un formulaire</a></button>#}
                         {#</div>#}
+                        <input type="hidden" name="id_offre" value="{% if dataForm.id_offre %}{{ dataForm.id_offre|e }}{% endif %}">
 
                         <div class="form-group -4u 4u">
-                            <button type="submit" class="btn" style="background: #00CC66;">Poster l'offre</button>
+                            <button type="submit" class="btn" style="background: #00CC66;">Modifier l'offre</button>
                         </div>
 
                     </form>

@@ -2531,6 +2531,7 @@
 
 /* Table */
 
+
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
@@ -2545,11 +2546,8 @@
 			border: solid 1px #e5e5e5;
 			border-left: 0;
 			border-right: 0;
+            background: #fff;
 		}
-
-			table tbody tr:nth-child(2n + 1) {
-				background-color: #f8f8f8;
-			}
 
 		table td {
 			padding: 0.75em 0.75em;

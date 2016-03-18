@@ -1,0 +1,83 @@
+{% extends 'accueil.twig' %}
+
+
+{% block menu %}
+    <header id="header" class="alt">
+        <nav id="nav">
+            {% if admin == 2 %}
+                <ul>
+                    <li><a href="/etablissements/accueil"><strong>Accueil</strong></a></li>
+                    <li><a href="/etablissements/mes-offres"><strong>Mes offres</strong></a></li>
+                    <li><a href="/etablissements/candidats"><strong>Candidats</strong></a></li>
+                    <li><a href="/etablissements/mon-profil"><strong>Mon profil</strong></a></li>
+                    <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
+                </ul>
+            {% else %}
+                <ul>
+                    <li><a href="/enseignants/accueil"><strong>Accueil</strong></a></li>
+                    <li><a href="/enseignants/offres"><strong>Offres</strong></a></li>
+                    <li><a href="/enseignants/mon-profil"><strong>Mon profil</strong></a></li>
+                    <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
+                </ul>
+            {% endif %}
+        </nav>
+    </header>
+{% endblock %}
+
+{% block bannerInner %}
+
+
+    <h1 style="color: #fff;">MyBestProf - Mes offres</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 form-box">
+
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Liste de vos offres: </h3>
+                    </div>
+
+                    <div class="form-top-right">
+                        <i class="fa fa-list"></i>
+                    </div>
+
+                </div>
+
+                <div class="form-bottom">
+
+                    {% if dataOffres %}
+                        <table class="table custom">
+                            <thead>
+                            <tr>
+                                <th style="color : white;">Intitulé</th>
+                                <th style="color : white;">Postulant</th>
+                                <th style="color : white;">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for offre in dataOffres %}
+                                <tr>
+                                    <th scope="row">{{ offre.title_offre }}</th>
+                                    <td>0</td>
+                                    <td>
+                                        <a href="/etablissements/mes-offres-update/{{ offre.id_offre }}"  style="color: #cc521a;">Modifier</a>
+                                        <a href="/etablissements/mes-offres-delete/{{ offre.id_offre }}"  style="color: #cc1005;">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                            <h3 class="-5u">Aucun offre créée</h3>
+                        {% endif %}
+
+                    <div class="form-group -4u 5u">
+                        <a href="/etablissements/mes-offres-creer" class="btn" style="background: #00CC66;">Ajouter une offre</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

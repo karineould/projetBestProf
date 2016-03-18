@@ -6,21 +6,21 @@ var models  = require('../models');
 
 
 var createOffreValidate = {
-    Title: {
+    title_offre: {
         presence: true
     },
-    Description: {
+    description_offre: {
         presence: true
     },
-    Competence: {
+    competence_offre: {
         presence: true
     },
-    TypeContrat: {
+    contrat_offre: {
         exclusion: {
             within: {"0": ""}
         }
     },
-    Experience: {
+    experience_offre: {
         exclusion: {
             within: {"0": ""}
         }
@@ -28,9 +28,10 @@ var createOffreValidate = {
 };
 
 
-exports.checkCreate = function(req, res, next){
+exports.checkOffre = function(req, res, next){
 
     var errorValidator = validate(req.body, createOffreValidate);
+    console.log(req.body);
 
     console.log(errorValidator);
     var error = false;
@@ -38,11 +39,21 @@ exports.checkCreate = function(req, res, next){
     if (errorValidator){
 
         error = 'Champs obligatoire !';
-        return res.render('offreCreate', {reg_error: errorValidator, notFound: error, dataForm: req.body});
+
+        if (req.body.id_offre){
+             res.render('offreUpdate', {admin: req.session.admin, reg_error: errorValidator, notFound: error, dataForm: req.body, update: true});
+        }else{
+             res.render('offreCreate', {admin: req.session.admin, reg_error: errorValidator, notFound: error, dataForm: req.body});
+        }
+
 
     }else{
+        if (req.body.id_offre){
+             res.render('offreRecap', {admin: req.session.admin, dataForm: req.body, update: true});
+        }else{
+             res.render('offreRecap', {admin: req.session.admin, dataForm: req.body});
+        }
 
-        res.render('offreCreateRecap', {admin: req.session.admin, dataForm: req.body});
     }
 
 };
@@ -51,40 +62,112 @@ exports.checkCreate = function(req, res, next){
 exports.createOffre = function(req, res, next){
 
     var newOffre = {
-        //id_users_offre :,
-        //id_form_offre : ,
-        //title_offre :,
-        //description_offre : ,
-        //competence_offre : ,
-        //contrat_offre : ,
-        //niveau_offre :
+        id_users_offre : req.session.user,
+        title_offre : req.body.title_offre,
+        description_offre : req.body.description_offre,
+        competence_offre : req.body.competence_offre,
+        contrat_offre : req.body.contrat_offre,
+        experience_offre : req.body.experience_offre
     };
+
+    console.log(newOffre);
 
     models.offres.create(newOffre).then(function(offre){
 
         var error = false;
 
-        if (offre.get('id_offre')){
-            //console.log(req.body.Birth);
-            //var newClient = {
-            //
-            //};
-            //
-            //models.clients.create(newClient).then(function(client){
-            //
-            //    if (!client.get('id_clients')){
-            //        error = 'error clients';
-            //    }
-            //
-            //});
+        if (offre){
+            res.redirect('/etablissements/mes-offres');
 
         }else{
-            error = 'error user';
+            error = 'error offre';
+            res.render('offreCreateError', { errorDb: error});
         }
 
-        res.render('signUpDone', { errorDb: error});
     }).catch(function(err){
+        var error = 'error offre';
+        res.render('offreCreateError', { errorDb: error});
         console.log(err);
     });
 
-}
+};
+
+exports.getAllOffre = function(req, res, next){
+
+    models.offres.findAll({
+        where: {
+            id_users_offre: req.session.user
+        }
+    }).then(function(offres){
+
+        var noResult = false;
+
+        if (offres.length == 0){
+            noResult = true;
+            res.render('offre', {admin: req.session.admin, result : noResult});
+
+        }else{
+            res.render('offre', {admin: req.session.admin, result : noResult, dataOffres: offres});
+        }
+
+    }).catch(function(err){
+        var error = 'error offre';
+        res.render('offre', { errorDb: error});
+        console.log(err);
+    });
+};
+
+exports.deleteOffre = function(req, res, next){
+
+    models.offres.destroy({
+        where:{
+            id_offre: parseInt(req.params.id)
+        }
+    }).then(function(offres){
+        console.log(offres);
+        res.redirect('/etablissements/mes-offres');
+    });
+
+
+};
+exports.RenderUpdateOffre = function(req, res, next){
+
+    models.offres.findOne({
+        where: {
+            id_offre: parseInt(req.params.id)
+        }
+    }).then(function(offres){
+
+            console.log(offres.get());
+
+            res.render('offreUpdate', {admin: req.session.admin, dataForm: offres.get()});
+        });
+
+};
+
+
+exports.updateOffre = function(req, res, next){
+    console.log(req.body);
+    var update = {
+        title_offre: req.body.title_offre,
+        description_offre: req.body.description_offre,
+        competence_offre: req.body.competence_offre,
+        contrat_offre: req.body.contrat_offre,
+        experience_offre : req.body.experience_offre
+    };
+
+    models.offres.update(
+        update,
+        { where : { id_offre : parseInt(req.body.id_offre)}}
+
+    ).then(function(offre){
+       console.log(offre);
+        res.redirect('/etablissements/mes-offres');
+    });
+
+};
+//offres.forEach(
+//    function(inst){
+//        dataOffre += inst.get();
+//    }
+//);
