@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="/enseignants/accueil"><strong>Accueil</strong></a></li>
                 <li><a href="/enseignants/offres"><strong>Offres</strong></a></li>
-                <li><a href="/enseignant/mon-profil"><strong>Mon profil</strong></a></li>
+                <li><a href="/enseignants/mon-profil"><strong>Mon profil</strong></a></li>
                 <li><a href="/logout" class="button"><strong>Deconnexion</strong></a></li>
             </ul>
             {% endif %}
@@ -36,12 +36,11 @@
 
         <div class="inner-bg">
 
-            <section {#id="banner"#}>
+            <section>
                 {% block bannerInner %}
                     {% if admin == 2 %}
                 <h1 style="color: #fff;">MyBestProf</h1>
                 <p style="color: #fff;">L'agence de recrutement spécialisée dans l'enseignement.</p>
-                {#<p style="color: #fff;">[TEXTE EXPLICATIVE]</p>#}
 
                 <br/><br/>
 

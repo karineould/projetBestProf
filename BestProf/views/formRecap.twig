@@ -1,0 +1,102 @@
+{% extends 'accueil.twig' %}
+
+
+{% block bannerInner %}
+    <h1 style="color: #fff;">MyBestProf - Formulaire d'informations enseignants</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 form-box">
+
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Validez votre Formulaire : </h3>
+
+                        {% if notFound %}
+                            <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="form-top-right">
+                        <i class="fa fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="form-bottom">
+
+                    <form role="form" action="/enseignants/mon-form-creer-done" method="post" class="offre-form">
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-matiere">Quelle matière souhaiteriez-vous enseigner ?</label>
+                            <p style="color : white; ">{% if dataForm.matiere_form %}{{ dataForm.matiere_form|e }}{% endif %}</p>
+                            <input type="hidden" name="matiere_form" value="{% if dataForm.matiere_form %}{{ dataForm.matiere_form|e }}{% endif %}" class="form-matiere" id="form-matiere">
+                        </div>
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-etude">Niveau d'étude : </label>
+                            <p style="color : white; ">{% if dataForm.etude_form %}{{ dataForm.etude_form|e }}{% endif %}</p>
+                            <input type="hidden" name="etude_form" value="{% if dataForm.etude_form %}{{ dataForm.etude_form|e }}{% endif %}" class="form-etude" id="form-etude">
+                        </div>
+
+                        <legend></legend>
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-etude">Avez-vous déjà enseigné ou travaillé avec des étudiants auparavant ?</label>
+                            <p style="color : white; ">{% if dataForm.already_work_form %}{{ dataForm.already_work_form|e }}{% endif %}</p>
+                            <input type="hidden" name="already_work_form" value="{% if dataForm.already_work_form %}{{ dataForm.already_work_form|e }}{% endif %}" class="form-work" id="form-work">
+                        </div>
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-workTime">Si oui, indiquez dans quel(s) établissement(s) et combien de temps:</label>
+                            <p style="color : white; ">{% if dataForm.time_work_form %}{{ dataForm.time_work_form|e }}{% endif %}</p>
+                            <input type="hidden" name="time_work_form" value="{% if dataForm.time_work_form %}{{ dataForm.time_work_form|e }}{% endif %}" class="form-workTime" id="form-workTime">
+                        </div>
+
+                        <legend></legend>
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-formation">Avez-vous déjà accompli une formation « pédagogique » ?</label>
+                            <p style="color : white; ">{% if dataForm.time_work_form %}{{ dataForm.time_work_form|e }}{% endif %}</p>
+                            <input type="hidden" name="formation_form" value="{% if dataForm.formation_form %}{{ dataForm.formation_form|e }}{% endif %}" class="form-formation" id="form-formation">
+                        </div>
+
+                        <div class="form-group">
+                            <label class=""  style="color : white;" for="form-formationTime">Si oui, indiquez la durée et l’intitulé de la formation :</label>
+                            <p style="color : white; ">{% if dataForm.formation_time_form %}{{ dataForm.formation_time_form|e }}{% endif %}</p>
+                            <input type="hidden" name="formation_time_form" value="{% if dataForm.formation_time_form %}{{ dataForm.formation_time_form|e }}{% endif %}" class="form-formation" id="form-formationTime">
+                        </div>
+
+                        <legend></legend>
+
+                        <div class="row uniform 100%">
+                            <div class="form-group 6u"  >
+                                <label class=""  style="color : white;" for="form-motivation">Vos motivations :</label>
+                                <p style="color : white;  word-wrap: break-word;">{% if dataForm.motivation_form %}{{ dataForm.motivation_form|e }}{% endif %}</p>
+                                <input type="hidden" name="motivation_form"  value="{% if dataForm.motivation_form %}{{ dataForm.motivation_form|e }}{% endif %}" class=""/>
+                            </div>
+
+
+                            <div class="form-group 6u"  >
+                                <label class=""  style="color : white;" for="form-competence">Vos compétences :</label>
+                                <p style="color : white;  word-wrap: break-word;">{% if dataForm.competence_form %}{{ dataForm.competence_form|e }}{% endif %}</p>
+                                <input type="hidden" name="competence_form"  value="{% if dataForm.competence_form %}{{ dataForm.competence_form|e }}{% endif %}" class=""/>
+                            </div>
+                        </div>
+
+
+                        <br/>
+
+                        <div class="row uniform 50%">
+                            <div class="form-group 6u">
+                                <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
+                            </div>
+                            <div class="form-group 6u">
+                                <button type="submit" class="btn" style="background: #00CC66;">Valider</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'accueil.twig' %}
+
+
+ {% block bannerInner %}
+
+     <h1 style="color:white;"><strong>MyBestProf</strong> - Mon profil </h1>
+
+     <div class="row">
+
+         <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 25%; width: 50%;">
+
+             <div class="form-top">
+
+                 <div class="form-top-left">
+                     <h3>Vos coordonnées : </h3>
+                 </div>
+                 <div class="form-top-right">
+                     <i class="fa  fa-user"></i>
+                 </div>
+             </div>
+
+             <div class="form-bottom">
+                 <form role="form" action="#{#enseignants/mon-profil-edit#}" method="post" class="login-form">
+                     <div class="row uniform 50%">
+                         <div class="-1u 5u">
+                             <label style="color:white;">Information enseignant : </label>
+                             {% if dataFormClient.firstName_client and dataFormClient.lastName_client %}
+                                 <p style="color:white;">{{ dataFormClient.lastName_client|e }} {{ dataFormClient.firstName_client|e }}</p>
+                                 <input type="hidden" name="Firstname" value="{{ dataFormClient.firstName_client|e }}"/>
+                                 <input type="hidden" name="Lastname" value="{{ dataFormClient.lastName_client|e }}"/>
+                             {% endif %}
+                             {% if dataFormClient.birthday_client %}
+                                 <p style="color:white;">{{ dataFormClient.birthday_client|e }}</p>
+                                 <input type="hidden" name="Birth" value="{{ dataFormClient.birthday_client|e }}"/>
+                             {% endif %}
+                             {% if dataFormClient.ville_client %}
+                                 <p style="color:white;"> {{ dataFormClient.ville_client|e }}</p>
+                                 <input type="hidden" name="Ville" value="{{ dataFormClient.ville_client|e }}"/>
+                             {% endif %}
+                             {% if dataFormClient.cp_client %}
+                                 <p style="color:white;">{{ dataFormClient.cp_client|e}}</p>
+                                 <input type="hidden" name="Cp" value="{{ dataForm.cp_client|e }}"/>
+                             {% endif %}
+                             {% if dataFormClient.telephone_client %}
+                                 <p style="color:white;">{{ dataFormClient.telephone_client|e }}</p>
+                                 <input type="hidden" name="Phone" value="{{ dataFormClient.telephone_client|e }}"/>
+                             {% endif %}
+                         </div>
+
+                         <div class="5u">
+                             <label style="color:white;">Information session : </label>
+                             {% if dataFormSession.email_users %}
+                                 <p style="color:white;"> {{ dataFormSession.email_users|e }}</p>
+                                 <input type="hidden" name="Email" value="{{ dataForm.email_users|e }}"/>
+                             {% endif %}
+                         </div>
+
+                     </div>
+
+
+                     <div class="form-group">
+                         <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
+                     </div>
+
+                 </form>
+
+             </div>
+         </div>
+     </div>
+     </div>
+ {% endblock %}
