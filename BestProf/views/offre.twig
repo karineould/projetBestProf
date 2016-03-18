@@ -27,7 +27,7 @@
 {% block bannerInner %}
 
 
-    <h1 style="color: #fff;">MyBestProf - Mes offres</h1>
+    <h1 class="white">MyBestProf - Mes offres</h1>
 
     <div class="container">
         <div class="row">
@@ -50,9 +50,9 @@
                         <table class="table custom">
                             <thead>
                             <tr>
-                                <th style="color : white;">Intitulé</th>
-                                <th style="color : white;">Postulant</th>
-                                <th style="color : white;">Action</th>
+                                <th class="white">Intitulé</th>
+                                <th class="white">Postulant</th>
+                                <th class="white">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -61,8 +61,8 @@
                                     <th scope="row">{{ offre.title_offre }}</th>
                                     <td>0</td>
                                     <td>
-                                        <a href="/etablissements/mes-offres-update/{{ offre.id_offre }}"  style="color: #cc521a;">Modifier</a>
-                                        <a href="/etablissements/mes-offres-delete/{{ offre.id_offre }}"  style="color: #cc1005;">Supprimer</a>
+                                        <a href="/etablissements/mes-offres-update/{{ offre.id_offre }}"  class="orangec">Modifier</a>
+                                        <a href="/etablissements/mes-offres-delete/{{ offre.id_offre }}"  class=" red">Supprimer</a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -73,7 +73,7 @@
                         {% endif %}
 
                     <div class="form-group -4u 5u">
-                        <a href="/etablissements/mes-offres-creer" class="btn" style="background: #00CC66;">Ajouter une offre</a>
+                        <a href="/etablissements/mes-offres-creer" class="btn greenb">Ajouter une offre</a>
                     </div>
                 </div>
             </div>

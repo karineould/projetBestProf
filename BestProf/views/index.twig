@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/assetsConnexion/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assetsConnexion/css/form-elements.css">
     <link rel="stylesheet" href="/assetsConnexion/css/style.css">
+    <link rel="stylesheet" href="/css/custom.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,21 +44,21 @@
             <nav id="nav">
                 <ul>
                     <li><a href="/"><strong>Accueil</strong></a></li>
-                    <li><a href="/inscription" class="button"><strong>Inscription</strong></a></li>
-                    <li><a href="/connexion" class="button"><strong>Connexion</strong></a></li>
+                    <li><a href="/inscription" class="button greenb"><strong>Inscription</strong></a></li>
+                    <li><a href="/connexion" class="button orange"><strong>Connexion</strong></a></li>
                 </ul>
             </nav>
         </header>
     {% endblock %}
-
+    
     {% block banner %}
         <!-- Banner -->
         <section id="banner">
             <h2><strong>MyBestProf</strong></h2>
-            <p>L'agence de recrutement spécialisée dans l'enseignement.</p>
+            <p class="white">L'agence de recrutement spécialisée dans l'enseignement.</p>
             <ul class="actions">
-                <li><a href="/inscription" class="button special">Inscription</a></li>
-                <li><a href="/connexion" class="button">Connexion</a></li>
+                <li class="greenb"><a href="/inscription" class="button special">Inscription</a></li>
+                <li class="orange"><a href="/connexion" class="button">Connexion</a></li>
             </ul>
         </section>
     {% endblock %}

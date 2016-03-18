@@ -28,7 +28,7 @@
                         			<h3>Connexion à votre compte</h3>
                             		<p>Entrer votre email et votre mot de passe</p>
                                     {% if notFound %}
-                                        <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
+                                        <label class="fail">{{ notFound }}</label>
                                     {% endif %}
                         		</div>
                         		<div class="form-top-right">
@@ -40,18 +40,18 @@
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="username">Email</label>
                                         {% if reg_error.username %}
-                                            <label style="color: #ff0000" for="username">{{ reg_error.username }}</label>
+                                            <label class="red" for="username">{{ reg_error.username }}</label>
                                         {% endif %}
 			                        	<input type="text" name="username" placeholder="Email ..." class="form-username {% if reg_error.username %}input-error{% endif %}" id="form-username">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="password">Mot de passe </label>
                                         {% if reg_error.password %}
-                                            <label style="color: #ff0000" for="username">{{ reg_error.password }}</label>
+                                            <label class="red" for="username">{{ reg_error.password }}</label>
                                         {% endif %}
 			                        	<input type="password" name="password" placeholder="Mot de passe ..." class="form-password {% if reg_error.password %}input-error{% endif %}" id="form-password">
 			                        </div>
-                                    <button type="submit" class="btn">Connexion !</button>
+                                    <button type="submit" class="btn greenb">Connexion !</button>
 			                    </form>
 		                    </div>
                         </div>
