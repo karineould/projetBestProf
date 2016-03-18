@@ -29,7 +29,7 @@ exports.auth = function(req, res, next) {
     if (req.session && req.session.user)
         return next();
     else
-        return res.send('auth failed');
+        res.redirect('/connexion');
 };
 
 

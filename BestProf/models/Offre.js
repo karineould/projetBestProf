@@ -13,13 +13,12 @@ module.exports = function(sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        Id_users_offre :{
+        id_users_offre :{
             type : DataTypes.INTEGER,
             required: true
         },
         id_form_offre : {
-            type : DataTypes.INTEGER,
-            required: true
+            type : DataTypes.INTEGER
         },
         title_offre : {
             type : DataTypes.STRING,
@@ -35,7 +34,7 @@ module.exports = function(sequelize, DataTypes){
         contrat_offre : {
             type : DataTypes.STRING
         },
-        niveau_offre : {
+        experience_offre : {
             type : DataTypes.STRING
         }
     });

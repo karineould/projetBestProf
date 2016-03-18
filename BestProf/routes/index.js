@@ -20,7 +20,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 // Login endpoint
 router.post('/login', AuthController.signIn, function (req, res) {
 
-    res.redirect('/users/accueil');
+    res.redirect('/etablissements/accueil');
 });
 
 // Logout endpoint
@@ -68,8 +68,5 @@ router.post('/inscription-enseignant-check', EnseignantController.signUpcheck, f
 router.post('/inscription-enseignant-done', EnseignantController.signUp, function (req, res) {
 });
 
-router.get('/test',/*AuthController.auth ,*/function (req,res){
-    res.render('formProf.twig', {admin: req.session.admin});
-});
 
 module.exports = router;
