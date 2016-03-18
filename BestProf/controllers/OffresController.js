@@ -166,8 +166,3 @@ exports.updateOffre = function(req, res, next){
     });
 
 };
-//offres.forEach(
-//    function(inst){
-//        dataOffre += inst.get();
-//    }
-//);

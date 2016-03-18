@@ -139,4 +139,32 @@ exports.signUp = function(req, res, next){
         res.render('signUpDone', { errorDb: error});
     });
 
-}
+};
+
+
+exports.renderProfil = function(req, res, next){
+
+    models.clients.findOne({
+        where: {
+            id_users_client : parseInt(req.session.user)
+        }
+    }).then(function(client){
+
+        var dataformClient = client.get();
+
+        console.log(client.get());
+
+        models.users.findOne({
+            where : {
+                id_users : client.get('id_users_client')
+            }
+        }).then(function(user){
+
+            console.log(user.get());
+
+            res.render('monProfilProf', {admin: req.session.admin, dataFormSession: user.get(), dataFormClient: dataformClient});
+        });
+
+    });
+
+};
