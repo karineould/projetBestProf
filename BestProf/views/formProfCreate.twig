@@ -2,7 +2,7 @@
 
 
 {% block bannerInner %}
-    <h1 style="color: #fff;">MyBestProf - Formulaire d'informations enseignants</h1>
+    <h1 class="white">MyBestProf - Formulaire d'informations enseignants</h1>
 
     <div class="container">
         <div class="row">
@@ -14,7 +14,7 @@
                         <p>Afin de mieux de vous trouver des offres d'emploi pertinente, veuillez remplir ce formulaire d'informations :</p>
 
                         {% if notFound %}
-                            <label style="color: #ff0000; font-weight: bold;" >{{ notFound }}</label>
+                            <label class="fail" >{{ notFound }}</label>
                         {% endif %}
                     </div>
                     <div class="form-top-right">
@@ -26,64 +26,63 @@
                     <form role="form" action="/enseignants/mon-form-creer-check" method="post" class="offre-form">
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-matiere">Quelle matière souhaiteriez-vous enseigner ?</label>
+                            <label class="white" for="form-matiere">Quelle matière souhaiteriez-vous enseigner ?</label>
                             <input type="text" name="matiere_form" placeholder="Ex: Economie " value="{% if dataForm.matiere_form %}{{ dataForm.matiere_form|e }}{% endif %}" class="form-matiere {% if reg_error.matiere_form %}input-error{% endif %}" id="form-matiere">
                         </div>
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-etude">Niveau d'étude : </label>
+                            <label class="white" for="form-etude">Niveau d'étude : </label>
                             <input type="text" name="etude_form" placeholder="Ex: Bac+2 " value="{% if dataForm.etude_form %}{{ dataForm.etude_form|e }}{% endif %}" class="form-etude {% if reg_error.etude_form %}input-error{% endif %}" id="form-etude">
                         </div>
 
-                        <legend></legend>
+                        <div class="legend"></div >
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-etude">Avez-vous déjà enseigné ou travaillé avec des étudiants auparavant ?</label>
+                            <label class="white" for="form-etude">Avez-vous déjà enseigné ou travaillé avec des étudiants auparavant ?</label>
                             <input type="text" name="already_work_form" placeholder="Ex: oui | non " value="{% if dataForm.already_work_form %}{{ dataForm.already_work_form|e }}{% endif %}" class="form-work {% if reg_error.already_work_form %}input-error{% endif %}" id="form-work">
                         </div>
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-workTime">Si oui, indiquez dans quel(s) établissement(s) et combien de temps:</label>
+                            <label class="white" for="form-workTime">Si oui, indiquez dans quel(s) établissement(s) et combien de temps:</label>
                             <input type="text" name="time_work_form" placeholder="Ex: Université Paris 13, 1 ans " value="{% if dataForm.time_work_form %}{{ dataForm.time_work_form|e }}{% endif %}" class="form-workTime" id="form-workTime">
                         </div>
-
-                        <legend></legend>
+                        
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-formation">Avez-vous déjà accompli une formation « pédagogique » ?</label>
+                            <label class="white" for="form-formation">Avez-vous déjà accompli une formation « pédagogique » ?</label>
                             <input type="text" name="formation_form" placeholder="Ex: oui | non" value="{% if dataForm.formation_form %}{{ dataForm.formation_form|e }}{% endif %}" class="form-formation {% if reg_error.formation_form %}input-error{% endif %}" id="form-formation">
                         </div>
 
                         <div class="form-group">
-                            <label class=""  style="color : white;" for="form-formationTime">Si oui, indiquez la durée et l’intitulé de la formation :</label>
+                            <label class="white" for="form-formationTime">Si oui, indiquez la durée et l’intitulé de la formation :</label>
                             <input type="text" name="formation_time_form" placeholder="Ex: 6 mois" value="{% if dataForm.formation_time_form %}{{ dataForm.formation_time_form|e }}{% endif %}" class="form-formation" id="form-formationTime">
                         </div>
-
-                        <legend></legend>
+                        
+                        
 
                         <div class="row uniform 100%">
                             <div class="form-group 6u"  >
-                                <label class=""  style="color : white;" for="form-motivation">Vos motivations :</label>
+                                <label class="white" for="form-motivation">Vos motivations :</label>
                                 <textarea name="motivation_form"  rows="5" placeholder="Veuillez indiquez vos motivations..." class="{% if reg_error.motivation_form %}input-error{% endif %}">{% if dataForm.motivation_form %}{{ dataForm.motivation_form|e }}{% endif %}</textarea>
                             </div>
 
 
                             <div class="form-group 6u"  >
-                                <label class=""  style="color : white;" for="form-competence">Vos compétences :</label>
+                                <label  class="white" for="form-competence">Vos compétences :</label>
                                 <textarea name="competence_form"  rows="5" placeholder="Veuillez indiquez vos compétence..." class="{% if reg_error.competence_form %}input-error{% endif %}">{% if dataForm.competence_form %}{{ dataForm.competence_form|e }}{% endif %}</textarea>
                             </div>
 
 
                         </div>
                         {#<div class="form-group 5u">#}
-                        {#<label class=""  style="color : white;" for="form-formation">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, diplômes…) :</label>#}
+                        {#<label class="white" for="form-formation">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, diplômes…) :</label>#}
                         {#<input type="text" name="formation_form" placeholder="Ex: oui | non" value="{% if dataForm.formation_form %}{{ dataForm.formation_form|e }}{% endif %}" class="form-formation {% if reg_error.formation_form %}input-error{% endif %}" id="form-formation">#}
                         {#</div>#}
 
                         <br/>
 
                         <div class="form-group -4u 4u">
-                            <button type="submit" class="btn" style="background: #00CC66;">Valider le formulaire</button>
+                            <button type="submit" class="btn greenb" >Valider le formulaire</button>
                         </div>
 
                     </form>
@@ -92,4 +91,37 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+    {#<legend></legend>#}
+
+
+
+    {#<div class="form-group">#}
+    {#<label class="col-md-4 control-label" for="filebutton"><p style="color:white">Pour finir, ajoutez ici les documents de votre choix qui apparaitront dans votre profil (Cv, vidéo de présentation, diplômes…)</p></label>#}
+    {#<div class="col-md-4">#}
+    {#<input id="filebutton" name="filebutton" class="input-file" type="file">#}
+    {#</div>#}
+    {#</div>#}
+    {#<legend></legend>#}
+    {#</fieldset>#}
+    {#</form>#}
+    {#<div class="align">#}
+    {#<button type="button" class="btn btn-success">Valider</button>#}
+    {#</div>#}
+    {#</div>       #}
+
+    {#</div>#}
+    {#</div>#}
+
+    {#</div>#}
+>>>>>>> 86290d4a05fc363777a156e1a8dea1005daa9bbc
 {% endblock %}

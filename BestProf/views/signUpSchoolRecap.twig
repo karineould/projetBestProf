@@ -14,7 +14,7 @@
              </div>
          </div>
          <div class="row">
-             <div class="col-sm-6 col-sm-offset-3 form-box" style="margin-left: 25%; width: 50%;">
+             <div class="col-sm-6 col-sm-offset-3 form-box ml25w50">
                  <div class="form-top">
                      <div class="form-top-left">
                          <h3>Merci de vérifier vos données : </h3>
@@ -29,38 +29,38 @@
                      <form role="form" action="/inscription-etablissement-done" method="post" class="login-form">
                          <div class="row uniform 50%">
                              <div class="-1u 5u">
-                                 <label style="color:white;">Information établissement : </label>
+                                 <label class="white">Information établissement : </label>
                                  {% if dataForm %}
-                                     <p style="color:white;">{{ dataForm.Name }}</p>
+                                     <p class="white">{{ dataForm.Name }}</p>
                                      <input type="hidden" name="Name" value="{{ dataForm.Name }}"/>
                                  {% endif %}
                                  {% if dataForm.Address %}
-                                     <p style="color:white;">{{ dataForm.Address }}</p>
+                                     <p class="white">{{ dataForm.Address }}</p>
                                      <input type="hidden" name="Address" value="{{ dataForm.Address }}"/>
                                  {% endif %}
                                  {% if dataForm.Ville %}
-                                     <p style="color:white;"> {{ dataForm.Ville }}</p>
+                                     <p class="white"> {{ dataForm.Ville }}</p>
                                      <input type="hidden" name="Ville" value="{{ dataForm.Ville }}"/>
                                  {% endif %}
                                  {% if dataForm.Cp %}
-                                     <p style="color:white;">{{ dataForm.Cp }}</p>
+                                     <p class="white">{{ dataForm.Cp }}</p>
                                      <input type="hidden" name="Cp" value="{{ dataForm.Cp }}"/>
                                  {% endif %}
                                  {% if dataForm.Phone %}
-                                     <p style="color:white;">{{ dataForm.Phone }}</p>
+                                     <p class="white">{{ dataForm.Phone }}</p>
                                      <input type="hidden" name="Phone" value="{{ dataForm.Phone }}"/>
                                  {% endif %}
                              </div>
 
                              <div class="-1u 5u">
-                                 <label style="color:white;">Information utilisateur : </label>
+                                 <label class="white">Information utilisateur : </label>
                                      {% if dataForm.Firstname and dataForm.Lastname %}
-                                         <p style="color:white;">{{ dataForm.Lastname }} {{ dataForm.Firstname }}</p>
+                                         <p class="white">{{ dataForm.Lastname }} {{ dataForm.Firstname }}</p>
                                          <input type="hidden" name="Firstname" value="{{ dataForm.Firstname }}"/>
                                          <input type="hidden" name="Lastname" value="{{ dataForm.Lastname }}"/>
                                      {% endif %}
                                      {% if dataForm.Poste %}
-                                         <p style="color:white;">{{ dataForm.Poste }}</p>
+                                         <p class="white">{{ dataForm.Poste }}</p>
                                          <input type="hidden" name="Poste" value="{{ dataForm.Poste }}"/>
                                      {% endif %}
                              </div>
@@ -68,23 +68,23 @@
                          </div>
 
                          <div class="-1u">
-                             <label style="color:white;">Information session : </label>
+                             <label class="white">Information session : </label>
                              {% if dataForm.Email %}
-                                 <p style="color:white;"> {{ dataForm.Email }}</p>
+                                 <p class="white"> {{ dataForm.Email }}</p>
                                  <input type="hidden" name="Email" value="{{ dataForm.Email }}"/>
                              {% endif %}
                              {% if dataForm.Password %}
-                                 <p style="color:white;">{{ dataForm.Password }}</p>
+                                 <p class="white">{{ dataForm.Password }}</p>
                                  <input type="hidden" name="Password" value="{{ dataForm.Password }}"/>
                              {% endif %}
 
                          </div>
                          <div class="row uniform 50%">
                              <div class="form-group -1u 5u">
-                                 <button type="button" class="btn" style="background: #cc521a;">Modifier</button>
+                                 <button type="button" class="btn orange">Modifier</button>
                              </div>
                              <div class="form-group 5u">
-                                 <button type="submit" class="btn" style="background: #00CC66;">Valider</button>
+                                 <button type="submit" class="btn greenb">Valider</button>
                              </div>
                          </div>
 
