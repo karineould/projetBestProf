@@ -68,8 +68,5 @@ router.post('/inscription-enseignant-check', EnseignantController.signUpcheck, f
 router.post('/inscription-enseignant-done', EnseignantController.signUp, function (req, res) {
 });
 
-router.get('/test',/*AuthController.auth ,*/function (req,res){
-    res.render('prof.twig', {admin: req.session.admin});
-});
 
 module.exports = router;
