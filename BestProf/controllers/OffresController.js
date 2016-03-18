@@ -140,19 +140,9 @@ exports.RenderUpdateOffre = function(req, res, next){
 
             console.log(offres.get());
 
-<<<<<<< HEAD
-};
 
-/*exports.afficherOffres = function(req, res, next){
-    models.offres.findAndCountAll({}), function(err,offres){
-        console.log(offres);
-        res.render('nosOffres', {"offre" : offres});
-    };
-};*/
-=======
             res.render('offreUpdate', {admin: req.session.admin, dataForm: offres.get()});
         });
-
 };
 
 
@@ -181,4 +171,4 @@ exports.updateOffre = function(req, res, next){
 //        dataOffre += inst.get();
 //    }
 //);
->>>>>>> 04aa9f4752070e109aaae51323a46730b230510a
+

@@ -1,9 +1,10 @@
 Mercredi 17 Mars :
 	-Etablissement:
-		-changer l'url de la "recherche de prof"
+		-modifier la redirection "etablissement/candidats"
 		-modifier le POST sur la validation de l'offre
 		-modifier le l'action sur le modifier sur la validation de l'offre
 		==> faire une fonction qui sauvegarde les offres
 
 	-Prof:
-		-modifier l'accueil des profs(a vérifier)
+		-créer la page "formRecap.twig"
+		-modifier la redirection "enseignants/candidats"

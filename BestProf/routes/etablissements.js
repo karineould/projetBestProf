@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var AuthController = require('../controllers/AuthenticateController.js');
 var OffreController = require('../controllers/OffresController.js');
+var EnseignController = require('../controllers/EnseignantController');
+
 
 /* GET users listing. */
 router.get('/accueil', AuthController.auth, function(req, res, next) {
@@ -33,4 +35,6 @@ router.post('/mes-offres-update',  AuthController.auth, OffreController.updateOf
 router.get('/mes-offres', AuthController.auth, OffreController.getAllOffre , function(req,res, next){
 });
 
+router.get('/candidats', AuthController.auth, EnseignController.getAllEnseignants,function(req, res, next){
+});
 module.exports = router;

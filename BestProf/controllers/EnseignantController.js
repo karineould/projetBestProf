@@ -139,4 +139,13 @@ exports.signUp = function(req, res, next){
         res.render('signUpDone', { errorDb: error});
     });
 
+};
+
+
+exports.getAllEnseignants = function(req, res, next){
+    models.clients.findAll({}).then(function(Client){
+        
+        console.log(Client);
+        res.render('testClients', {clients: Client});
+    });
 }
